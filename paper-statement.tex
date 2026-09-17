@@ -1,0 +1,25 @@
+% =====================================================================
+%  论文"代码与数据可用性"声明 —— 定稿片段
+%
+%  已应用的正文位置：
+%    siam_adapt/paper.tex   §4.1（投稿版）
+%    arxiv/main.tex         §4.1（arXiv 版，由 make_arxiv_bundle.py 同步）
+%
+%  替换前的原句是：
+%    All experiments use fixed seeds; the reproduction scripts are
+%    \texttt{bfp\_error\_pilot\_v7.py}--\texttt{v9.py} with the raw
+%    outputs in \texttt{repro/}.
+%  这句话有两个问题：(1) 只提了 v7--v9，但复现全部表格还需要 v2--v6 与
+%  src/exact/ 下的高精度脚本；(2) 指向本地文件名，公开读者无法获取。
+%
+%  改完记得重新生成 arXiv 版：python3 ../make_arxiv_bundle.py
+% =====================================================================
+
+All experiments use fixed random seeds. The reproduction scripts, the raw
+outputs of the runs reported here, and a table mapping each script to the
+results it produces are openly available at
+\url{https://github.com/NUAApanda-1116/bfp-error-independence}.
+
+% 备注：曾计划同时给出 Zenodo 归档 DOI，但 DOI 尚未申请，故此处不写占位符，
+% 也不写未存在的 DOI。取得 DOI 后可在上面一句末尾追加
+% "and archived at \url{https://doi.org/10.5281/zenodo.<id>}"。

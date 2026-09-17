@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper it accompanies."
+title: "Reproduction code for: The Independence Assumption for Rounding Errors in Block Floating Point"
+abstract: >-
+  Simulation and high-precision quadrature scripts producing every numerical
+  result of the accompanying paper: the failure of the zero-mean and
+  uncorrelatedness assumptions for block floating point rounding errors, the
+  exact variance laws, and the parameter-free reduced model.
+type: software
+authors:
+  - family-names: Xiong
+    given-names: Yongkang
+    email: nuaapanda@outlook.com
+    affiliation: "Nanjing University of Aeronautics and Astronautics"
+license: MIT
+version: "1.0.0"
+date-released: "2026-09-17"
+preferred-citation:
+  type: article
+  title: >-
+    The Independence Assumption for Rounding Errors in Block Floating Point:
+    Failure of Conditional Symmetry and Its Effect on Summation Error
+    Accumulation
+  authors:
+    - family-names: Xiong
+      given-names: Yongkang
+  year: 2026
+  # 论文上线后补：doi / url（arXiv ID）

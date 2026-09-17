@@ -1,0 +1,5 @@
+# 实验脚本（src/bfp_error_pilot*.py, src/exact/*.py）
+numpy>=1.22
+
+# 仅 src/make_figures.py 需要
+matplotlib>=3.5
