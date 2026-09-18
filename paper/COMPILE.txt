@@ -1,0 +1,47 @@
+Manuscript package for arXiv / SIAM submission.
+(Contents are also listed, with SHA-256 checksums, in SHA256SUMS.txt.)
+
+Compile:
+  pdflatex paper && bibtex paper && pdflatex paper && pdflatex paper
+
+Compile the two-column layout:
+  pdflatex paper-twocolumn && bibtex paper-twocolumn && pdflatex paper-twocolumn
+  && pdflatex paper-twocolumn
+
+Contents:
+  paper.tex            manuscript source (SIAM class, review option;
+                       10pt one-column body, 23 pages total)
+  paper.pdf            compiled one-column manuscript, 23 pages
+  paper-twocolumn.tex  the same source with the "twocolumn" class option added
+  paper-twocolumn.pdf  compiled two-column version, identical content, 22 pages
+  references.bib       28 entries, all with DOI or arXiv identifier
+  siamart251216.cls    SIAM article class
+  siamplain.bst        SIAM bibliography style
+  figures/             the figures used by the manuscript
+                       (fig_biasvar.pdf, fig3_inflation.pdf, fig_srmodes.pdf)
+                       plus the five single-panel figures they were drawn from
+                       (fig1 ... fig5), kept as source material
+  scripts/             reproduction package, including the archived terminal
+                       outputs of every batch of runs (see scripts/README.md
+                       and scripts/NOTES.zh.md)
+  refs/                23 cited works as third-party PDFs (author copies or
+                       arXiv versions), used only for checking the manuscript
+                       against the primary sources; not part of the
+                       reproduction package
+  COMPILE.txt          this file
+
+paper-twocolumn.tex is paper.tex with "twocolumn" added to the \documentclass
+options; keep the two files in sync when editing the text (the header of
+paper-twocolumn.tex shows the one-line command that regenerates it).
+
+Regenerate the two compound figures from their hard-coded data (no experiment
+is re-run; this is what produced figures/fig_biasvar.pdf and fig_srmodes.pdf):
+  python3 scripts/src/make_figures_compact.py figures
+
+Reproduction code is in scripts/. Verify that the archived terminal outputs
+contain the numbers printed in the paper tables with:
+  python3 scripts/tools/check_paper_numbers.py
+
+Every entry in references.bib carries a DOI or arXiv identifier and has been
+checked against the primary source. The 23 third-party PDFs in refs/ are local
+working copies and are not redistributed with the arXiv source.
