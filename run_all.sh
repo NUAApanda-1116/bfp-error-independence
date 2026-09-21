@@ -26,6 +26,7 @@ if [ "${1:-all}" = "fast" ]; then
   run exact_lattice.txt        src/exact lattice_check2.py
   run exact_lattice_old.txt    src/exact check_lattice_identity.py
   run exact_audit.txt          src/exact audit_logic.py
+  run exact_verify.txt         src/exact verify_numerics.py
   exit 0
 fi
 

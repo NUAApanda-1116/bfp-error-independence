@@ -18,16 +18,19 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, os.pardir, "outputs")
 
 # (论文中的位置, 归档输出, 必须出现的数字串)
+# 表号对应 2026-09-18 压缩排版后的版本：tab:infl2/tab:infl4 已合并为 tab:infl，
+# 原 tab:bias 的 z 值移入正文文字，原 tab:sr 由 tab:srfull 取代，
+# 原 tab:modes 的完整表移至附录（表号不变）。
 CHECKS = [
-    ("tab:bias   块均值偏置 z 值", "out_v2.txt",
+    ("§5.1 块均值偏置 z 值（原 tab:bias）", "out_v2.txt",
      ["126.80", "60.57", "39.48", "1.63"]),
     ("tab:var    方差比（实测/经典）", "out_v2.txt",
      ["0.506", "0.093", "0.808", "0.999"]),
-    ("tab:infl2  方差膨胀因子 Lm=2", "out_v5.txt",
+    ("tab:infl   Lm=2 行", "out_v5.txt",
      ["176.996", "14.989", "6.132", "1.013"]),
-    ("tab:infl4  方差膨胀因子 Lm=4", "out_v5.txt",
+    ("tab:infl   Lm=4 行", "out_v5.txt",
      ["165.025", "1.834", "1.300"]),
-    ("tab:sr     SR 可证伪检验", "out_v6.txt",
+    ("tab:srfull SR 可证伪检验", "out_v6.txt",
      ["176.051", "6.111", "14.871", "0.988"]),
     ("tab:cond   条件分解直接测量", "out_v7.txt",
      ["175.7679", "6.1631", "14.8804"]),
@@ -69,7 +72,7 @@ def main():
         return 1
     print(f"全部通过：{len(CHECKS)} 组代表性数字均可在归档输出中找到。")
     print("注：tab:modes 与 §4.2 的原始终端输出未保存，核对的是 tools/../outputs/rerun/out_v3.txt，")
-    print("    即用原种子 20260915 重跑的复现结果（见 README 第 3 节）。")
+    print("    即用原种子 20260915 重跑的复现结果（见 README.md, Provenance note 2）。")
     return 0
 
 

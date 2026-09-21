@@ -84,7 +84,7 @@ MODE_Z = {
 
 
 def fig1_bias():
-    fig, ax = plt.subplots(figsize=(6.4, 2.6))
+    fig, ax = plt.subplots(figsize=(6.2, 2.05))
     x = np.arange(len(DISTS))
     w = 0.2
     for k, Lm in enumerate(LMS):
@@ -100,14 +100,14 @@ def fig1_bias():
     ax.set_xticklabels(DISTS, fontsize=8)
     for t, s in zip(ax.get_xticklabels(), SYM):
         t.set_color("#4C72B0" if s else "#C44E52")
-    ax.set_ylabel("$|z|$ of block-mean bias")
-    ax.legend(ncol=4, fontsize=7.5, loc="upper left")
+    ax.set_ylabel("$|z|$ of bias", fontsize=8)
+    ax.legend(ncol=4, fontsize=7, loc="upper left")
     fig.savefig(f"{OUT}/fig1_bias.pdf")
     plt.close(fig)
 
 
 def fig2_var():
-    fig, ax = plt.subplots(figsize=(6.4, 2.6))
+    fig, ax = plt.subplots(figsize=(6.2, 2.05))
     x = np.arange(len(DISTS))
     w = 0.2
     for k, Lm in enumerate(LMS):
@@ -121,8 +121,8 @@ def fig2_var():
     ax.set_xticklabels(DISTS, fontsize=8)
     for t, s in zip(ax.get_xticklabels(), SYM):
         t.set_color("#4C72B0" if s else "#C44E52")
-    ax.set_ylabel("empirical / predicted variance")
-    ax.legend(ncol=4, fontsize=7.5, loc="lower left")
+    ax.set_ylabel("empirical / predicted var.", fontsize=8)
+    ax.legend(ncol=4, fontsize=7, loc="lower left")
     fig.savefig(f"{OUT}/fig2_variance.pdf")
     plt.close(fig)
 
