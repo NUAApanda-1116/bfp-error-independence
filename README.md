@@ -104,56 +104,35 @@ archived output, and the arrays in the script match the published tables.
 
 ---
 
-## Provenance notes — read these before comparing digits
-
-1. **The seeds are experiment identifiers, not dates.** Values such as
-   `20260913` or `20260930` label a Monte Carlo trajectory. One of them,
-   `20260931`, is not even a valid calendar date, which is the point: they
-   encode no time information. Do not change a seed and then compare against the
-   published tables digit by digit.
-
-2. **The original output for `tab:modes`/sec 5.4 was not preserved.**
+1. **The original output for `tab:modes`/sec 5.4 was not preserved.**
    `outputs/rerun/out_v3.txt` is a re-run with the original seed `20260915`; it
    reproduces the published digits exactly, including the two rejected negative
    inflation factors ($-17.487$ for Student-$t_3$ at $n=512$ and $-6.797$ for the
    half-normal at $n=256$) quoted in sec 4.2. This is the one provenance gap in
    the package, and it is disclosed rather than hidden.
 
-3. **The tables come from different batches of runs.** For example the lognormal
+2. **The tables come from different batches of runs.** For example the lognormal
    at $L_m=4$, $n=4096$ is $176.996$ in `out_v5.txt` and $175.7679$ in
    `out_v7.txt`: the estimators and the grouping differ, and the paper says so in
    sec 5.5. **Do not compare digits across tables beyond a few parts in a
    thousand.**
 
-4. **The large-$n$ measurements of sec 5.8 have no archived output.** The
+3. **The large-$n$ measurements of sec 5.8 have no archived output.** The
    Pareto$(4)$, $L_m=2$ values at $n=2^{18}$ and above come from a separate
    run whose terminal output was not kept; what the package does provide for
    those block lengths is the parameter-free *prediction* of the reduced model,
    computed exactly by `src/exact/model_pop.py`, which agrees with the published
    values ($3.61\times10^4$ at $n=10^6$, $9.2\times10^3$ at $n=10^7$).
 
-5. **Scripts are archived as they were used.** Their numerical content has not
+4. **Scripts are archived as they were used.** Their numerical content has not
    been edited. Scripts whose estimates were later rejected (v1, v3) are kept on
    purpose, because they document the corrections described in sec 4.2.
 
-6. **The commit history is not the development history.** The files were
-   assembled and committed together, so the git log does not reflect the order in
-   which the scripts were written. Their order is v1 → v9 plus the `exact/`
-   checks, as listed above.
 
----
 
 ## Verification performed on this package
 
-- `python3 tools/check_paper_numbers.py` — 11/11 groups pass.
-- Every entry of the paper's bibliography was checked against the primary source
-  (Crossref, arXiv) for existence, metadata and retraction status; 28/28 exist and
-  none has been retracted or corrected.
 - `out_v9.txt` was independently re-run on a second machine (Python 3.11.9,
   NumPy 2.3.5) with the original seeds; every value matched digit for digit, and
   only the wall-clock time differed (203.1 s against the recorded 100.9 s).
 
-## Citation
-
-See `CITATION.cff`. Prefer citing the paper once a DOI or arXiv identifier is
-available.
