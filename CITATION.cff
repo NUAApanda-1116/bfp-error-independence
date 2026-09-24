@@ -18,9 +18,7 @@ date-released: "2026-09-17"
 preferred-citation:
   type: article
   title: >-
-    The Independence Assumption for Rounding Errors in Block Floating Point:
-    Failure of Conditional Symmetry and Its Effect on Summation Error
-    Accumulation
+    The Independence Assumption for Rounding Errors in Block Floating Point
   authors:
     - family-names: Xiong
       given-names: Yongkang

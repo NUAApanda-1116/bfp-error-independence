@@ -2,9 +2,7 @@
 
 Scripts and archived terminal output behind every numerical result in
 
-> **The Independence Assumption for Rounding Errors in Block Floating Point:
-> Failure of Conditional Symmetry and Its Effect on Summation Error
-> Accumulation**
+> **The Independence Assumption for Rounding Errors in Block Floating Point**
 > Yongkang Xiong — Nanjing University of Aeronautics and Astronautics
 
 Code is MIT (`LICENSE`); the paper text is CC BY 4.0.
@@ -75,7 +73,7 @@ not replace re-running the experiments.
 | `bfp_error_pilot_v6.py` | `tab:srfull` (round-to-nearest vs stochastic rounding) | `out_v6.txt` | 20260918 |
 | `bfp_error_pilot_v7.py` | `tab:cond`, `tab:model` (measured column), sec 5.6 | `out_v7.txt` | 20260920 |
 | `bfp_error_pilot_v8.py` | `tab:bounded` and the $\mathbb P(\xi=\text{mode})$ column | `out_v8.txt` | 20260921 / 20260922 |
-| `bfp_error_pilot_v9.py` | `tab:largen` (two independent seeds) | `out_v9.txt` | 20260930 / 20260923 |
+| `bfp_error_pilot_v9.py` | the Pareto(4) $\rho_n$ values of sec 5.7 (two independent seeds) | `out_v9.txt` | 20260930 / 20260923 |
 
 ### High-precision and independent checks (`src/exact/`)
 
