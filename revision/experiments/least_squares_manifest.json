@@ -1,0 +1,149 @@
+{
+  "master_seed": 20261010,
+  "rng": "NumPy PCG64; SeedSequence with SHA256 labels, inherited rng_for",
+  "date": "2026-10-10 Asia/Shanghai",
+  "n": 128,
+  "L": 2,
+  "laws": {
+    "exponential": "Exp(1)",
+    "lognormal": "exp(N(0,1))"
+  },
+  "blocks_per_law": 80000,
+  "bootstrap_replicates": 400,
+  "confidence_level": 0.95,
+  "bootstrap_unit": "independent complete RHS blocks",
+  "design": "t_i=i/(n-1), i=0,...,n-1; A=[1,t-1/2] and A_origin=t",
+  "quantizer": "RNE ties-to-even; step=2^(floor(log2 max|b_i|)-L); uniform unsaturated grid",
+  "scope": "iid RHS compression; deterministic unquantized design; binary64 application of a fixed QR pseudoinverse; solver arithmetic excluded; not MXFP4",
+  "baseline": "same exact marginal mean and variance, kappa=0",
+  "selection_record": [
+    "Two laws chosen from the existing grid before generating application samples: exponential (memoryless control C=0) and lognormal (C nonzero).",
+    "The initial L=2 coefficient run reused n=128 and L=2 from the existing weighted experiment, with no parameter-grid or random-seed search. A subsequent L=2,3,4,5 accuracy sweep reused exactly the same RHS blocks and retained every precision.",
+    "Inspected only analytic population moments to verify the prescribed designs' constant-direction geometry and effect sizes.",
+    "All two laws and all three coefficient coordinates are retained, including every missed confidence interval; seed and labeled streams are fixed."
+  ],
+  "precision_sweep": {
+    "precisions": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "tolerance": 0.1,
+    "observation_stream": "exactly the same RHS blocks as the original L=2 application run; input label retains L=2",
+    "purpose": "illustrative accuracy decision, not an optimization algorithm",
+    "threshold_provenance": "chosen after the initial coefficient experiment and analytic inspection, not preregistered; every tested L is retained",
+    "decisions": [
+      {
+        "distribution": "exponential",
+        "method": "exact",
+        "tolerance": 0.1,
+        "selected_L": 2,
+        "mc_rms_at_selected": 0.054811437122951376,
+        "mc_rms_high_at_selected": 0.05518074004847912,
+        "mc_meets_tolerance_at_selected": true
+      },
+      {
+        "distribution": "exponential",
+        "method": "independent",
+        "tolerance": 0.1,
+        "selected_L": 2,
+        "mc_rms_at_selected": 0.054811437122951376,
+        "mc_rms_high_at_selected": 0.05518074004847912,
+        "mc_meets_tolerance_at_selected": true
+      },
+      {
+        "distribution": "exponential",
+        "method": "uniform",
+        "tolerance": 0.1,
+        "selected_L": 2,
+        "mc_rms_at_selected": 0.054811437122951376,
+        "mc_rms_high_at_selected": 0.05518074004847912,
+        "mc_meets_tolerance_at_selected": true
+      },
+      {
+        "distribution": "exponential",
+        "method": "mc",
+        "tolerance": 0.1,
+        "selected_L": 2,
+        "mc_rms_at_selected": 0.054811437122951376,
+        "mc_rms_high_at_selected": 0.05518074004847912,
+        "mc_meets_tolerance_at_selected": true
+      },
+      {
+        "distribution": "lognormal",
+        "method": "exact",
+        "tolerance": 0.1,
+        "selected_L": 4,
+        "mc_rms_at_selected": 0.040152209043647545,
+        "mc_rms_high_at_selected": 0.04125018982012794,
+        "mc_meets_tolerance_at_selected": true
+      },
+      {
+        "distribution": "lognormal",
+        "method": "independent",
+        "tolerance": 0.1,
+        "selected_L": 3,
+        "mc_rms_at_selected": 0.12198631001414056,
+        "mc_rms_high_at_selected": 0.12360477146977489,
+        "mc_meets_tolerance_at_selected": false
+      },
+      {
+        "distribution": "lognormal",
+        "method": "uniform",
+        "tolerance": 0.1,
+        "selected_L": 2,
+        "mc_rms_at_selected": 0.3144619065462488,
+        "mc_rms_high_at_selected": 0.3164590199565116,
+        "mc_meets_tolerance_at_selected": false
+      },
+      {
+        "distribution": "lognormal",
+        "method": "mc",
+        "tolerance": 0.1,
+        "selected_L": 4,
+        "mc_rms_at_selected": 0.040152209043647545,
+        "mc_rms_high_at_selected": 0.04125018982012794,
+        "mc_meets_tolerance_at_selected": true
+      }
+    ]
+  },
+  "design_weight_sums": [
+    1.0,
+    1.5959455978986625e-16,
+    1.494117647058823
+  ],
+  "direct_fit_difference_check_max": 3.0808688933348094e-15,
+  "exact_mean_ci_coverage": 6,
+  "exact_variance_ci_coverage": 5,
+  "exact_mse_ci_coverage": 5,
+  "configurations": 6,
+  "duration_seconds": 12.99543809890747,
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "matplotlib": "3.11.2",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "source_dependencies": {
+    "run_revision.py": "b90f935570d79ff4e3b49150a167eda40b61af45dcfae2deb45aad1251d56d12"
+  },
+  "files": {
+    "least_squares_samples_exponential.csv": "74e15a281cfc0afc1b053e4aa715025cf3851e11c8ebbcbcbd61a3fd8b992889",
+    "least_squares_precision_samples_exponential.csv": "e1fc7605d22ec6770d798b95362edf095abc75e26f2242e505012b11a40f34d6",
+    "least_squares_samples_lognormal.csv": "aabc1ec94616c6c067923463a47ab1cffb224c1eb5114eaa2dbc4c435948afc0",
+    "least_squares_precision_samples_lognormal.csv": "25aa056f4b8eb5424fb5fb21b8f55019c0ba8b5279fb8271a22dc42170331b68",
+    "least_squares_results.csv": "9ba1f15b7c4ee77cf14d964b42794421f5bad29a4acb62511e9397d03d7bcc23",
+    "least_squares_covariance.csv": "193c09356f5310603ee1f9629064bc24c840b6ab773968f4b7542ebe13f85bba",
+    "least_squares_application.pdf": "08c9ef477a7606128d97fe1162ce3149ed5976858cf03f476b9c1d3fd282c799",
+    "least_squares_application.png": "8f82fb028c33c89693cbc3aea898ed29a1e4283bc18461f1d0fd944e31f58443",
+    "least_squares_precision.csv": "d21658a6778b94f113f10bbc6e0b16741cb5f48a9052969f0d8557899550f589",
+    "least_squares_precision_decisions.csv": "cedc324079eba47b787d7882203aaf5826b6aa53f27b06cb621e8b570c6c712a",
+    "least_squares_precision.pdf": "4db1684520ff75ef18199e581070ad423f5f61e49a265df78903011a06573681",
+    "least_squares_precision.png": "5c312082dde5cba6462fb4d53dae2dd8e9853961237dc7d098a98c7fa6d01cb8",
+    "least_squares_application.py": "f1a8f2823b4e16fe134f4e3ac73174b1417e009484f1d0a2e815b5664aba2051"
+  },
+  "generated_manuscript_section": {
+    "../application.tex": "e911ef2f5c12dcea3679976037d7ca86a256ea7ef1ad31fbbbcf4c3db9d3444d"
+  },
+  "artifact_rebuild": "Generated from saved result CSVs without sampling or bootstrap computation; source dependency hashes for the numerical run are preserved."
+}

@@ -1,0 +1,14 @@
+% Generated from experiments/tables.tex
+\begin{table}[t]
+\centering\footnotesize
+\caption{New finite-$n$ validation at $L=2$, $n=4096$. Monte Carlo brackets are 95\% block-bootstrap intervals; Pareto uses conditional stratification. $\mathcal I_{\mathrm{drop}}$ drops only $c_k$ while retaining exact conditional one-element moments; $\mathcal I_{\mathrm{red}}$ additionally replaces those moments by unconditional responses.}\label{tab:revision-validation}
+\begin{tabular}{@{}lrrrr@{}}\toprule
+Distribution & MC [95\% CI] & Exact & $\mathcal I_{\mathrm{drop}}$ & $\mathcal I_{\mathrm{red}}$\\\midrule
+Gaussian & 1.013 [0.965, 1.056] & 1.000 & 1.000 & 1.000\\
+Half-normal & 14.86 [14.50, 15.19] & 14.927 & 14.927 & 14.905\\
+ReLU & 6.202 [5.913, 6.483] & 6.205 & 6.205 & 6.186\\
+Lognormal & 173.8 [168.0, 178.8] & 177.1 & 177.1 & 177.3\\
+Pareto(4) & 2893.7 [2893.0, 2894.7] & 2894.1 & 2894.1 & 2895.0\\
+Exponential & 41.78 [39.99, 43.73] & 41.794 & 41.794 & 41.794\\
+\bottomrule\end{tabular}
+\end{table}

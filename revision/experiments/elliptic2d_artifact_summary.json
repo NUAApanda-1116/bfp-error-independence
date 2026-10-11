@@ -1,0 +1,31 @@
+{
+  "primary_coverage": 34,
+  "first_coverage": 26,
+  "max_rms_discrepancy": 0.00827439343137204,
+  "smooth_energy_vs_uniform": {
+    "mesh": "32",
+    "profile": "smooth",
+    "baseline": "b32_contiguous_uniform",
+    "candidate": "b32_contiguous_energy",
+    "exact_fractional_rms_reduction": "0.22449005600236072",
+    "mc_fractional_rms_reduction": "0.22372173291784603",
+    "mc_fractional_rms_reduction_low": "0.22171015811723058",
+    "mc_fractional_rms_reduction_high": "0.22605022163706454",
+    "bootstrap_replicates": "300",
+    "trials": "60000"
+  },
+  "hotspot_energy_vs_source": {
+    "mesh": "32",
+    "profile": "hotspot",
+    "baseline": "b32_contiguous_source",
+    "candidate": "b32_contiguous_energy",
+    "exact_fractional_rms_reduction": "0.00892171112198148",
+    "mc_fractional_rms_reduction": "0.00860711422077931",
+    "mc_fractional_rms_reduction_low": "0.008140057020400198",
+    "mc_fractional_rms_reduction_high": "0.009062963227815609",
+    "bootstrap_replicates": "300",
+    "trials": "60000"
+  },
+  "max_cg_energy_relative_error": 1.2778578195593582e-10,
+  "max_cg_norm_certificate": 2.7201215288755475e-09
+}

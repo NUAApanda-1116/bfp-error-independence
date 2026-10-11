@@ -1,0 +1,44 @@
+\subsection{Calibration from a separate source sample}
+\label{sec:revision-calibration}
+The preceding high-contrast experiment assumes the source law is known. We
+now separate law fitting from codec validation on the same fixed $16^2$
+operator. For each $T\in\{32,128,512,2048\}$ and five independently labeled
+training samples, we fit $\log b_i=\ell_i+\sigma Z_i$ by coordinate-wise
+means and one pooled residual scale. The fitted $(\ell_i,\sigma)$ determine
+the source-scale and full-energy bit maps; each map is frozen before a common
+30,000-vector validation stream is generated. The uniform map, the oracle
+map obtained from the known law, and every learned map are retained; the
+validation stream is never used to choose a map.
+
+\begin{table}[tb]
+\centering
+\caption{Validation RMS and regret for the learned $32$-cell contiguous
+maps. Values are medians over five training replicates; regret is relative
+to the fixed oracle full-energy map, in percent.}
+\label{tab:revision-calibration}
+\begin{tabular}{rllrr}
+\toprule
+$T$ & Source RMS & Energy RMS & Source regret & Energy regret\\
+\midrule
+32 & 4.498 & 3.100 & 45.07 & 0.00 \\
+128 & 3.956 & 3.100 & 27.58 & 0.00 \\
+512 & 3.956 & 3.100 & 27.58 & 0.00 \\
+2048 & 3.890 & 3.100 & 25.46 & 0.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The full-moment energy map has median regret 0.00\% at $T=2048$
+and 0.00\% at $T=32$; its central 95\% replicate quantile range at $T=32$ is
+$[0.00,1.38]\%$. The fitted source scale converges with
+$T$ (median log-scale RMSE 0.1714 at $T=32$ versus 0.0222 at
+$T=2048$). The median validation error of the train-only full-moment
+prediction is -5.43\% at $T=32$ and -1.01\% at $T=2048$.
+The fitted energy map recovered the oracle map in 17 of the
+20 training fits; the other maps and their validation outcomes are retained.
+The validation stream evaluates six unique maps (43 candidate records,
+including repeated maps), and all $20$ fits, $40$ learned maps, predictions,
+validation energies, and bootstrap intervals are retained. The nominal
+intervals contain all six unique-map predictions; repeated candidate rows
+are bookkeeping records rather than independent validation tests. The
+validation stream is independent of every earlier experiment.

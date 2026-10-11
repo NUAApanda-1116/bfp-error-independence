@@ -1,0 +1,97 @@
+\subsection{A Poisson solve with an equal storage budget}
+\label{sec:revision-poisson}
+As a scientific-computing application, consider the steady diffusion problem
+$-u''=f$ on $(0,1)$ with homogeneous Dirichlet conditions. On $N$ interior
+points, put $h=(N+1)^{-1}$ and $A=h^{-2}\operatorname{tridiag}(-1,2,-1)$.
+The cell sources $b_i$ are independent $\operatorname{Exp}(1)$ or
+$\exp(N(0,1))$ variables; $u=A^{-1}b$. We compress $b$ and compute
+$\delta u=A^{-1}(Q(b)-b)$ with the same fixed operator in binary64.
+This tests source compression in a prescribed elliptic solve; it does not
+model a correlated random field or arithmetic inside an iterative solver.
+
+For a partition $\{B_j\}$, let its block moments be $\mu_j,v_j,\kappa_j$,
+and set $m_i=\mu_j$ for $i\in B_j$. With $\|z\|_{A,h}^2=h z^TAz$,
+the block covariance formulas give
+\begin{equation}\label{eq:revision-poisson-energy}
+\begin{aligned}
+ h^{-1}\mathbb E\|\delta u\|_{A,h}^2
+ &=\sum_j\left[(v_j-\kappa_j)
+    \operatorname{tr}((A^{-1})_{B_jB_j})
+ +\kappa_j\mathbf1_{B_j}^{T}A^{-1}\mathbf1_{B_j}\right]\\
+ &\quad +m^TA^{-1}m.
+\end{aligned}
+\end{equation}
+The reported relative RMS divides the square root of this expectation by
+the deterministic population reference
+$\{h[\operatorname{Var}(b_i)\operatorname{tr}(A^{-1})+
+(\mathbb E b_i)^2\mathbf1^TA^{-1}\mathbf1]\}^{1/2}$.
+In particular, the bias term includes interactions across different blocks.
+
+Each codec has exactly $7N$ payload bits on representable inputs: an 8-bit
+signed exponent per block, $L_j+3$ signed bits per grid coefficient, and
+explicit padding. Block lengths are $4,8,16,32,64,128$; the largest feasible
+common $L$ is supplemented by one extra coefficient bit in as many evenly
+spaced, prescribed blocks as the budget allows. These locations are part of
+the codec and require no data-dependent flags. Table~\ref{tab:revision-poisson}
+lists the $N=128$ allocations. We test contiguous and interleaved layouts,
+where the latter assigns every $N/|B_j|$th coordinate to the same block.
+
+The actual encoder rejects exponents outside $[-128,127]$; it does not
+silently saturate or add escape data. No failure occurred in the retained
+samples. For each configuration the per-vector union-bound failure probability is
+below $10^{-152}$; a fourth-moment/Cauchy bound puts the omitted
+unconditional energy MSE below $10^{-77}$. The population formula
+uses the unsaturated model, so this audit makes its finite-range discrepancy
+explicit. This is a fully specified model codec, not a claim about MXFP4.
+
+We retain all 46 configurations at $N=128,512$, using respectively
+40\,000 and 20\,000 independent held-out source vectors per law and
+300 vector-bootstrap replicates. Each vector is reused across codecs.
+The configuration and encoding policy were recorded before sampling; the
+analytical pilot used to design this experiment is disclosed in the manifest.
+The measured intervals cover 42 of 46 exact RMS predictions.
+Both resolutions and every layout, interval, and population ranking are in
+the reproduction package.
+
+\begin{table}[tb]
+\centering
+\caption{Equal-$896$-bit Poisson source compression: both source laws,
+$N=128$, contiguous blocks. A mixed $L/(L+1)$ entry gives the number of
+higher-precision blocks in parentheses. Relative energy RMS values are
+percentages. ``Ind.'' keeps exact marginal moments and bias; ``Unif.'' uses
+independent zero-mean uniform-cell errors. All six candidates are retained.}
+\label{tab:revision-poisson}
+\begingroup\footnotesize\setlength{\tabcolsep}{2.2pt}
+\begin{tabular}{lrlrrrrr}
+\toprule
+Law & $|B_j|$ & $L_j$ & Pad & Exact & Ind. & Unif. & MC $95\%$ interval\\
+\midrule
+Exp. & 4 & 2 & 0 & 1.764 & 1.748 & 1.575 & [1.759,1.778] \\
+Exp. & 8 & 3 & 0 & 1.030 & 1.024 & 0.979 & [1.024,1.034] \\
+Exp. & 16 & 3/4 (4/8) & 0 & 0.984 & 0.974 & 0.935 & [0.978,0.991] \\
+Exp. & 32 & 3/4 (3/4) & 0 & 1.064 & 1.044 & 0.995 & [1.057,1.072] \\
+Exp. & 64 & 3/4 (1/2) & 48 & 1.436 & 1.397 & 1.288 & [1.433,1.453] \\
+Exp. & 128 & 3 & 120 & 2.213 & 2.115 & 1.833 & [2.193,2.229] \\
+Logn. & 4 & 2 & 0 & 2.256 & 2.162 & 1.951 & [2.253,2.285] \\
+Logn. & 8 & 3 & 0 & 1.438 & 1.343 & 1.283 & [1.433,1.462] \\
+Logn. & 16 & 3/4 (4/8) & 0 & 1.591 & 1.383 & 1.312 & [1.570,1.620] \\
+Logn. & 32 & 3/4 (3/4) & 0 & 2.092 & 1.633 & 1.504 & [2.116,2.230] \\
+Logn. & 64 & 3/4 (1/2) & 48 & 3.602 & 2.554 & 2.101 & [3.601,3.757] \\
+Logn. & 128 & 3 & 120 & 7.578 & 5.083 & 3.297 & [7.491,7.778] \\
+\bottomrule
+\end{tabular}\endgroup
+\end{table}
+
+For the single length-$128$ lognormal block, the bias-aware independent
+prediction underestimates energy MSE by a factor 2.22, and the
+uniform-cell prediction by 5.28. The storage constraint also
+prevents treating smaller blocks as a free improvement. At $N=128$ the exact
+minimum among the prescribed codecs is $|B_j|=32$ with interleaved blocks for exponential sources
+and $|B_j|=8$ with interleaved blocks for lognormal sources. The marginal-only and exact models
+choose the same block lengths here. At length $8$, interleaving reduces the
+measured lognormal energy RMS by 3.90\% at $N=128$ (paired $95\%$
+interval $[3.04,4.75]\%$) and 3.42\% at $N=512$
+($[2.35,4.35]\%$). The marginal-only models tie these
+layouts, whereas the exact covariance predicts their difference.
+The comparison establishes quantitative error and layout predictions; it
+does not establish a general optimizer or a block-length ranking reversal.

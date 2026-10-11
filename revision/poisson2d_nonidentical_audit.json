@@ -1,0 +1,504 @@
+{
+  "status": "PASS",
+  "configurations": 24,
+  "enumerated_rhs": 5340,
+  "source_sha256": "4733ef4ddf22c97c34a66c919e94ae70e2b55eac9f49465961f2ce8055f0569b",
+  "exact_arithmetic": "fractions.Fraction",
+  "independence": "No imports from producer or experiment implementations",
+  "method": "Nested product-event moments versus complete joint quantization, exact 2D inverse, and squared grid differences",
+  "results": [
+    {
+      "grid": [
+        2,
+        2
+      ],
+      "profile": "one_sided",
+      "layout": "single",
+      "levels": [
+        0
+      ],
+      "enumerated_rhs": 16,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0
+      ],
+      "energy_mse": "77851/5598720",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        2
+      ],
+      "profile": "one_sided",
+      "layout": "single",
+      "levels": [
+        2
+      ],
+      "enumerated_rhs": 16,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0
+      ],
+      "energy_mse": "91/345600",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        2
+      ],
+      "profile": "one_sided",
+      "layout": "row",
+      "levels": [
+        0,
+        1
+      ],
+      "enumerated_rhs": 16,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0
+      ],
+      "energy_mse": "180407/27993600",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        2
+      ],
+      "profile": "one_sided",
+      "layout": "row",
+      "levels": [
+        2,
+        3
+      ],
+      "enumerated_rhs": 16,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0
+      ],
+      "energy_mse": "151/1036800",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        2
+      ],
+      "profile": "one_sided",
+      "layout": "column",
+      "levels": [
+        0,
+        1
+      ],
+      "enumerated_rhs": 16,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0
+      ],
+      "energy_mse": "22853/9331200",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        2
+      ],
+      "profile": "one_sided",
+      "layout": "column",
+      "levels": [
+        2,
+        3
+      ],
+      "enumerated_rhs": 16,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0
+      ],
+      "energy_mse": "1081/9331200",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        2
+      ],
+      "profile": "zeros_ties",
+      "layout": "single",
+      "levels": [
+        0
+      ],
+      "enumerated_rhs": 81,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        -1,
+        0,
+        1
+      ],
+      "energy_mse": "3905/663552",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        2
+      ],
+      "profile": "zeros_ties",
+      "layout": "single",
+      "levels": [
+        2
+      ],
+      "enumerated_rhs": 81,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0,
+        1
+      ],
+      "energy_mse": "5555/5308416",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        2
+      ],
+      "profile": "zeros_ties",
+      "layout": "row",
+      "levels": [
+        0,
+        1
+      ],
+      "enumerated_rhs": 81,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0,
+        1
+      ],
+      "energy_mse": "7757/1990656",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        2
+      ],
+      "profile": "zeros_ties",
+      "layout": "row",
+      "levels": [
+        2,
+        3
+      ],
+      "enumerated_rhs": 81,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0
+      ],
+      "energy_mse": "317/497664",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        2
+      ],
+      "profile": "zeros_ties",
+      "layout": "column",
+      "levels": [
+        0,
+        1
+      ],
+      "enumerated_rhs": 81,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0
+      ],
+      "energy_mse": "41/18432",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        2
+      ],
+      "profile": "zeros_ties",
+      "layout": "column",
+      "levels": [
+        2,
+        3
+      ],
+      "enumerated_rhs": 81,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0
+      ],
+      "energy_mse": "115/663552",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        3
+      ],
+      "profile": "one_sided",
+      "layout": "single",
+      "levels": [
+        0
+      ],
+      "enumerated_rhs": 64,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0
+      ],
+      "energy_mse": "57151749369479/3868771211827200",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        3
+      ],
+      "profile": "one_sided",
+      "layout": "single",
+      "levels": [
+        2
+      ],
+      "enumerated_rhs": 64,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0
+      ],
+      "energy_mse": "12388259266637/27081398482790400",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        3
+      ],
+      "profile": "one_sided",
+      "layout": "row",
+      "levels": [
+        0,
+        1
+      ],
+      "enumerated_rhs": 64,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0,
+        1
+      ],
+      "energy_mse": "14807103375657/3009044275865600",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        3
+      ],
+      "profile": "one_sided",
+      "layout": "row",
+      "levels": [
+        2,
+        3
+      ],
+      "enumerated_rhs": 64,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0,
+        1
+      ],
+      "energy_mse": "217503030937/1289590403942400",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        3
+      ],
+      "profile": "one_sided",
+      "layout": "column",
+      "levels": [
+        0,
+        1,
+        0
+      ],
+      "enumerated_rhs": 64,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0,
+        1
+      ],
+      "energy_mse": "74865991412689/27081398482790400",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        3
+      ],
+      "profile": "one_sided",
+      "layout": "column",
+      "levels": [
+        2,
+        3,
+        2
+      ],
+      "enumerated_rhs": 64,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        -1,
+        0
+      ],
+      "energy_mse": "478514578861/5416279696558080",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        3
+      ],
+      "profile": "zeros_ties",
+      "layout": "single",
+      "levels": [
+        0
+      ],
+      "enumerated_rhs": 729,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        -1,
+        0,
+        1
+      ],
+      "energy_mse": "3446950201865/550225239015424",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        3
+      ],
+      "profile": "zeros_ties",
+      "layout": "single",
+      "levels": [
+        2
+      ],
+      "enumerated_rhs": 729,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        -1,
+        0,
+        1
+      ],
+      "energy_mse": "24315689277/37303406034944",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        3
+      ],
+      "profile": "zeros_ties",
+      "layout": "row",
+      "levels": [
+        0,
+        1
+      ],
+      "enumerated_rhs": 729,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        -1,
+        0,
+        1
+      ],
+      "energy_mse": "213487980337/68778154876928",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        3
+      ],
+      "profile": "zeros_ties",
+      "layout": "row",
+      "levels": [
+        2,
+        3
+      ],
+      "enumerated_rhs": 729,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0,
+        1
+      ],
+      "energy_mse": "164064701875/314414422294528",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        3
+      ],
+      "profile": "zeros_ties",
+      "layout": "column",
+      "levels": [
+        0,
+        1,
+        0
+      ],
+      "enumerated_rhs": 729,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        -1,
+        0
+      ],
+      "energy_mse": "225586192147/103167232315392",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    },
+    {
+      "grid": [
+        2,
+        3
+      ],
+      "profile": "zeros_ties",
+      "layout": "column",
+      "levels": [
+        2,
+        3,
+        2
+      ],
+      "enumerated_rhs": 729,
+      "status": "PASS",
+      "conditional_covariance_signs": [
+        0,
+        1
+      ],
+      "energy_mse": "11608709801/68778154876928",
+      "energy_difference": "0",
+      "full_covariance_difference": "0"
+    }
+  ]
+}

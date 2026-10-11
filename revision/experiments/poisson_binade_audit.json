@@ -1,0 +1,10 @@
+{
+  "executed_numerical_source_sha256": "ea11f9d609d8813aec8dc32a9b3b3ac7d28e901c6992f25b690f24c7a1d84eec",
+  "current_source_sha256": "c93dce8ee33d60f220ed6272d1518b6f4d27e288c7477564a1a10643623e5b11",
+  "audit": "Regenerated exactly the held-out input streams without solver or bootstrap; compared every block exponent under log2 and frexp. Boundary triples independently verify exact binades; zero block exponent convention verified.",
+  "held_out_block_exponents_checked": 30160000,
+  "changed_held_out_exponents": 0,
+  "boundary_values_checked": 603,
+  "boundary_misclassifications_with_frexp": 0,
+  "zero_block_exponent": 0
+}

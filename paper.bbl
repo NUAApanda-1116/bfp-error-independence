@@ -1,0 +1,108 @@
+\begin{thebibliography}{10}
+
+\bibitem{ang2026quant}
+{\sc C.~Ang, S.~Kim, and M.~Pilanci}, {\em Optimal scalar quantization for
+  matrix multiplication: Closed-form density and phase transition}.
+\newblock arXiv:2603.19559 [cs.IT], 2026,
+  \url{https://doi.org/10.48550/arXiv.2603.19559},
+  \url{https://arxiv.org/abs/2603.19559}.
+
+\bibitem{connolly2021}
+{\sc M.~P. Connolly, N.~J. Higham, and T.~Mary}, {\em Stochastic rounding and
+  its probabilistic backward error analysis}, SIAM J. Sci. Comput., 43 (2021),
+  pp.~A566--A585, \url{https://doi.org/10.1137/20M1334796}.
+
+\bibitem{croci2022}
+{\sc M.~Croci and M.~B. Giles}, {\em Effects of round-to-nearest and stochastic
+  rounding in the numerical solution of the heat equation in low precision},
+  IMA J. Numer. Anal., 43 (2023), pp.~1358--1390,
+  \url{https://doi.org/10.1093/imanum/drac012}.
+
+\bibitem{elarar2024}
+{\sc E.-M. El~Arar, M.~Fasi, S.-I. Filip, and M.~Mikaitis}, {\em Probabilistic
+  error analysis of limited-precision stochastic rounding}, SIAM J. Sci.
+  Comput., 47 (2025), pp.~B1227--B1249,
+  \url{https://doi.org/10.1137/24M1681458}.
+
+\bibitem{fasi2023}
+{\sc M.~Fasi, N.~J. Higham, F.~Lopez, T.~Mary, and M.~Mikaitis}, {\em Matrix
+  multiplication in multiword arithmetic: Error analysis and application to
+  {GPU} tensor cores}, SIAM J. Sci. Comput., 45 (2023), pp.~C1--C19,
+  \url{https://doi.org/10.1137/21M1465032}.
+
+\bibitem{fox2026zfp}
+{\sc A.~Fox and P.~Lindstrom}, {\em Enhancing {ZFP}: A statistical approach to
+  understanding and reducing error bias in a lossy floating-point compression
+  algorithm}, SIAM J. Sci. Comput., 48 (2026), pp.~B1--B30,
+  \url{https://doi.org/10.1137/24M1679586}.
+
+\bibitem{hallman2023}
+{\sc E.~Hallman and I.~C.~F. Ipsen}, {\em Precision-aware deterministic and
+  probabilistic error bounds for floating point summation}, Numer. Math., 155
+  (2023), pp.~83--119, \url{https://doi.org/10.1007/s00211-023-01370-y}.
+
+\bibitem{higham2019}
+{\sc N.~J. Higham and T.~Mary}, {\em A new approach to probabilistic rounding
+  error analysis}, SIAM J. Sci. Comput., 41 (2019), pp.~A2815--A2835,
+  \url{https://doi.org/10.1137/18M1226312}.
+
+\bibitem{higham2020}
+{\sc N.~J. Higham and T.~Mary}, {\em Sharper probabilistic backward error
+  analysis for basic linear algebra kernels with random data}, SIAM J. Sci.
+  Comput., 42 (2020), pp.~A3427--A3446,
+  \url{https://doi.org/10.1137/20M1314355}.
+
+\bibitem{kalliojarvi1996}
+{\sc K.~Kallioj{\"a}rvi and J.~Astola}, {\em Roundoff errors in
+  block-floating-point systems}, IEEE Trans. Signal Process., 44 (1996),
+  pp.~783--790, \url{https://doi.org/10.1109/78.492531}.
+
+\bibitem{lian2019}
+{\sc X.~Lian, Z.~Liu, Z.~Song, J.~Dai, W.~Zhou, and X.~Ji}, {\em
+  High-performance {FPGA}-based {CNN} accelerator with block-floating-point
+  arithmetic}, IEEE Trans. Very Large Scale Integr. (VLSI) Syst., 27 (2019),
+  pp.~1874--1885, \url{https://doi.org/10.1109/TVLSI.2019.2913958}.
+
+\bibitem{ocpmx2023}
+{\sc {Open Compute Project}}, {\em {OCP} microscaling formats ({MX})
+  specification, version 1.0}.
+\newblock Technical specification, 2023,
+  \url{https://www.opencompute.org/documents/ocp-microscaling-formats-mx-v1-0-spec-final-pdf}.
+
+\bibitem{rohani2006}
+{\sc E.~Rohani and S.~M. Fakhraie}, {\em Round-off error in
+  block-floating-point structures}, Electron. Lett., 42 (2006), pp.~186--187,
+  \url{https://doi.org/10.1049/el:20063397}.
+
+\bibitem{sao2026trees}
+{\sc P.~Sao, N.~Miniskar, P.~Valero-Lara, K.~Teranishi, and S.~Seal}, {\em A
+  second-moment theory for floating-point reduction trees}.
+\newblock arXiv:2607.18758 [math.NA], 2026,
+  \url{https://doi.org/10.48550/arXiv.2607.18758},
+  \url{https://arxiv.org/abs/2607.18758}.
+
+\bibitem{soloveychik2022}
+{\sc I.~Soloveychik, I.~Lyubomirsky, X.~Wang, and S.~Bhoja}, {\em Block format
+  error bounds and optimal block size selection}.
+\newblock arXiv:2210.05470 [cs.LG], version 3, 2022,
+  \url{https://doi.org/10.48550/arXiv.2210.05470},
+  \url{https://arxiv.org/abs/2210.05470v3}.
+
+\bibitem{song2018}
+{\sc Z.~Song, Z.~Liu, and D.~Wang}, {\em Computation error analysis of block
+  floating point arithmetic oriented convolution neural network accelerator
+  design}, in Proc. AAAI Conf. Artif. Intell., vol.~32, 2018, pp.~816--823,
+  \url{https://doi.org/10.1609/aaai.v32i1.11334}.
+
+\bibitem{widrow2008}
+{\sc B.~Widrow and I.~Koll{\'a}r}, {\em Quantization Noise: Roundoff Error in
+  Digital Computation, Signal Processing, Control, and Communications},
+  Cambridge University Press, Cambridge, UK, 2008,
+  \url{https://doi.org/10.1017/CBO9780511754661}.
+
+\bibitem{widrow1996}
+{\sc B.~Widrow, I.~Koll{\'a}r, and M.-C. Liu}, {\em Statistical theory of
+  quantization}, IEEE Trans. Instrum. Meas., 45 (1996), pp.~353--361,
+  \url{https://doi.org/10.1109/19.492748}.
+
+\end{thebibliography}

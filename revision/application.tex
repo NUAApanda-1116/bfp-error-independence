@@ -1,0 +1,98 @@
+\subsection{Fixed-design least squares with a quantized right-hand side}
+\label{sec:revision-ls}
+The covariance formula also predicts errors in coefficients of a prescribed
+linear approximation. Let $A\in\mathbb R^{n\times p}$ be deterministic and
+have full column rank, and let $b_i$ be i.i.d. observations. Define
+$\theta=A^\dagger b$ and $\widetilde\theta=A^\dagger Q(b)$, where the
+right-hand side is quantized as one block and
+$A^\dagger=(A^TA)^{-1}A^T$. These are projections of the same observations;
+we measure the additional coefficient error due to data compression.
+
+\begin{corollary}[Coefficient error and the constant direction]
+\label{cor:revision-ls}
+Put $g=A^\dagger\mathbf1$ and $\delta\theta=\widetilde\theta-\theta$. Then
+\begin{align}
+ \mathbb E[\delta\theta]&=\mu g,\qquad
+ \operatorname{Cov}(\delta\theta)
+ =(v-\kappa)(A^TA)^{-1}+\kappa gg^T,\label{eq:revision-ls-cov}\\
+ \mathbb E[\|\delta\theta\|_2^2]
+ &=(v-\kappa)\operatorname{tr}((A^TA)^{-1})
+       +(\kappa+\mu^2)\|g\|_2^2.\label{eq:revision-ls-mse}
+\end{align}
+If $A=[\mathbf1,Z]$ has full column rank, then $g=(1,0,\ldots,0)^T$.
+If instead $A^T\mathbf1=0$, then $g=0$.
+\end{corollary}
+\begin{proof}
+Since $\delta\theta=A^\dagger e$, multiply
+\eqref{eq:revision-spectrum} on both sides by $A^\dagger$ and its transpose,
+and use $A^\dagger(A^\dagger)^T=(A^TA)^{-1}$. The second identity is the
+trace of the covariance plus the squared mean. For the stated designs,
+$A(1,0,\ldots,0)^T=\mathbf1$ or $A^T\mathbf1=0$, respectively.
+\end{proof}
+
+Thus the inverse Gram matrix controls ordinary geometric amplification,
+while $g$ determines how the shared component and bias enter the fitted
+coefficients. An intercept confines this component to the intercept
+coefficient; omitting the intercept can transmit it to a slope. The centered
+slope still has variance proportional to $v-\kappa$, rather than $v$.
+
+We use $n=128$ and $t_i=(i-1)/(n-1)$. The first design fits
+$\alpha+\beta(t_i-1/2)$, and the second fits $\gamma t_i$ through the
+origin. Inputs are either $\operatorname{Exp}(1)$ or
+$\exp(N(0,1))$; there is no deterministic trend added to these i.i.d.
+right-hand sides. Each law uses $80\,000$ independent blocks and $400$
+block bootstrap replicates. At $L=2$, the intercept biases are $-0.04222$
+and $-0.23654$, respectively. For lognormal inputs, retaining the exact
+marginal $\mu,v$ but setting $\kappa=0$ underpredicts the intercept and
+through-origin slope variances by factors $9.88$ and $7.62$,
+while overpredicting the centered slope variance by $7.5\%$.
+The mean, variance, and mean-square-error intervals cover $6$,
+$5$, and $5$ of $6$ predictions, respectively.
+The retained variance-interval misses are: Exponential centered slope (exact ratio $0.992981$, interval $[0.993090,1.016730]$). Full coefficient results are in the package.
+
+For an accuracy decision, $\alpha=\overline b$ has predicted mean-square
+compression error
+$[v+(n-1)\kappa]/n+\mu^2$. Table~\ref{tab:revision-ls} uses the same
+input blocks at $L=2,3,4,5$. Besides the bias-aware independent baseline
+$v/n+\mu^2$, it reports the classical independent, zero-mean uniform-cell
+prediction $\mathbb E[s^2]/(12n)$. We choose an illustrative RMS tolerance
+$0.10$ after inspecting the initial experiment; this is a transparent
+design example, not a preregistered threshold or a precision optimizer.
+
+\begin{table}[tb]
+\centering
+\caption{RMS compression error in the fitted intercept $\alpha$.
+``Ind.'' retains the exact bias and marginal variance but drops pair
+covariance; ``Unif.'' assumes independent, zero-mean uniform-cell errors.
+The last column gives $95\%$ block bootstrap intervals for the measured
+RMS. All tested precisions are retained.}
+\label{tab:revision-ls}
+\begingroup\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llrrrr}
+\toprule
+Law & $L$ & Exact & Ind. & Unif. & MC RMS interval\\
+\midrule
+Exp(1) & 2 & 0.0548 & 0.0493 & 0.0262 & [0.0545, 0.0552] \\
+Exp(1) & 3 & 0.0182 & 0.0170 & 0.0131 & [0.0181, 0.0183] \\
+Exp(1) & 4 & 0.0073 & 0.0071 & 0.0066 & [0.0072, 0.0073] \\
+Exp(1) & 5 & 0.0034 & 0.0033 & 0.0033 & [0.0034, 0.0034] \\
+Lognormal & 2 & 0.3138 & 0.2455 & 0.0782 & [0.3124, 0.3165] \\
+Lognormal & 3 & 0.1211 & 0.0760 & 0.0391 & [0.1204, 0.1236] \\
+Lognormal & 4 & 0.0395 & 0.0229 & 0.0195 & [0.0390, 0.0413] \\
+Lognormal & 5 & 0.0129 & 0.0100 & 0.0098 & [0.0123, 0.0132] \\
+\bottomrule
+\end{tabular}\endgroup
+\end{table}
+
+For lognormal inputs, among the tested precisions, the exact prediction
+selects $L=4$, whereas the bias-aware independent model selects
+$L=3$ and the uniform-cell model selects $L=2$.
+Monte Carlo shows that the exact selection meets the tolerance (measured RMS $0.04015$); the bias-aware independent selection fails the tolerance (measured RMS $0.12199$); the uniform-cell selection fails the tolerance (measured RMS $0.31446$). For exponential inputs all three models select
+$L=2$; the measured RMS at this precision is $0.05481$.
+At fixed block length, increasing
+$L$ by one increases a sufficient signed integer coefficient width by
+one bit while preserving one shared exponent; this is a model-level
+storage tradeoff, not a hardware format comparison. Only the right-hand
+side is quantized. The designs are fixed and their QR pseudoinverses are
+applied to the residual in binary64, isolating input compression from
+subsequent solver arithmetic and from non-i.i.d. regression models.

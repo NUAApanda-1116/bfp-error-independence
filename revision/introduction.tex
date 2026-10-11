@@ -1,0 +1,65 @@
+\section{Introduction}\label{sec:intro}
+Block floating point represents a vector by integer coefficients and a common
+power-of-two scale. The scale is usually selected from the block maximum,
+so it depends on the same data that are subsequently rounded. This choice
+couples the rounding errors. In a sum or a matrix--vector product, even a
+small covariance between two coordinates can matter because it contributes
+once for every coordinate pair. Predicting the variance of an individual
+error is therefore insufficient for predicting the error of a reduction.
+
+Classical statistical quantization models approximate residuals by centered
+uniform noise \cite{widrow1996,widrow2008}. Block floating point roundoff
+has a long history \cite{kalliojarvi1996}, and statistical noise models
+continue to inform accelerator design \cite{song2018,lian2019}.
+Microscaling formats add a contemporary motivation \cite{ocpmx2023}.
+The shared-scale dependence is also
+recognized: Rohani and Fakhraie \cite{rohani2006} discuss correlations in
+dynamically rescaled structures, and Soloveychik et al.
+\cite{soloveychik2022} use maximum order statistics to derive inner-product
+error bounds and study block-size selection for Gaussian data. The latter
+model approximates nonmaximum residuals by uniform noise. Fox and Lindstrom
+\cite{fox2026zfp} analyze systematic bias in the ZFP compression pipeline.
+These studies leave a finite-block question: how can one compute the error
+covariance of a maximum-selected quantizer directly from the input law?
+
+We derive such a calculation from one-dimensional truncated moments.
+For independent, identically distributed inputs, conditioning on a binade
+of the maximum excludes the event that every coordinate lies below its
+lower endpoint. This exclusion gives an explicit nonpositive conditional
+covariance. Variation of the conditional error mean across binades supplies
+a competing nonnegative contribution. Their sum determines whether a
+reduction is inflated or attenuated. The calculation also extends to
+independent inputs with different distributions, for which the conditional
+pair correction can have either sign. Conditioning on latent factors then
+provides moments for correlated inputs and covariances between blocks.
+
+The covariance matrix gives exact variance and mean-square error formulas
+for deterministic weighted reductions. It also provides a useful
+approximation guarantee: retaining the conditional moments while dropping
+the negative pair correction overestimates the sum's variance inflation
+factor by at most one. Thus the approximation becomes relatively accurate
+when inflation is large, while the full formula resolves small inflation
+and deflation. The complete covariance matrix supplies the moments needed
+for propagation through a linear operator.
+
+The large-block limit reveals a separate obstruction. Bounded support with
+a nondegenerate limiting error gives unit inflation. With unbounded support,
+the pair correlation tends to zero, yet the number of pairs can amplify it.
+An exponential-input counterexample proves that inflation diverges along a
+dyadic subsequence even though every input moment is finite. A decreasing
+pair correlation therefore cannot justify an independent-error model for
+large reductions.
+
+Our numerical study checks the formulas by exact rational enumeration,
+high-precision integration, and independently sampled blocks. Weighted
+reductions expose the role of cancellation and bias; elliptic solves connect
+the covariance to solution accuracy, block layout, and a fixed storage
+budget. A train/validation experiment tests the same allocation after the
+source law is estimated rather than supplied. Symmetric inputs and independently randomized stochastic rounding
+provide controls through their zero pair covariance
+\cite{connolly2021,croci2022}. These results complement probabilistic
+analyses of arithmetic rounding \cite{higham2019,higham2020,hallman2023},
+mixed-precision kernels \cite{fasi2023}, fixed-quantizer inner-product
+distortion \cite{ang2026quant}, and state-conditioned reduction trees
+\cite{sao2026trees}. The contribution here is the dependence created when
+the input quantizer selects its own common scale.

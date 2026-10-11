@@ -1,0 +1,69 @@
+%% Revised SISC manuscript, 11 October 2026.
+%% Build with latexmk -pdf -interaction=nonstopmode -halt-on-error paper.tex.
+\documentclass[review,hidelinks,letterpaper]{siamart251216}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{amssymb,amsfonts,graphicx,booktabs,enumitem,microtype}
+\newsiamremark{remark}{Remark}
+\newsiamremark{example}{Example}
+\newcommand{\creflastconjunction}{, and~}
+\setlist{nosep,leftmargin=1.6em}
+\setlength{\emergencystretch}{2em}
+\AtBeginEnvironment{thebibliography}{\interlinepenalty=10000}
+\headers{Error Covariance in Block Floating Point}{Y. Xiong}
+\title{Exact Error Covariances for Block Floating Point Reductions}
+\author{Yongkang Xiong\thanks{College of Changkong, Nanjing University of
+Aeronautics and Astronautics, 29 Jiangjun Avenue, Nanjing 211106, China
+(\email{nuaapanda@outlook.com}).}}
+\hypersetup{pdftitle={Exact Error Covariances for Block Floating Point Reductions},
+ pdfauthor={Yongkang Xiong}}
+\begin{document}
+\maketitle
+\begin{abstract}
+Selecting a shared scale from a block maximum couples the quantization errors.
+We derive exact finite-block error moments from one-dimensional truncated
+distributions, including continuous laws and atoms. For identically distributed
+independent inputs, the conditional pair covariance is nonpositive;
+variation of the conditional mean supplies a competing positive contribution.
+The resulting covariance gives the variance and mean-square error of weighted
+reductions. Dropping the conditional pair correction while retaining the
+conditional moments overestimates sum-variance inflation by at most one.
+The formulas extend to independent heterogeneous inputs and, by conditioning,
+to correlated inputs with latent factors. An exponential-input theorem shows
+that variance inflation can diverge along a dyadic subsequence despite
+vanishing pair correlation and finite moments of every order.
+Rational enumeration, high-precision integration, and Monte Carlo validate
+the moment calculations. Two-dimensional elliptic experiments connect the
+moments to solution energy error, spatial block layout, and precision allocation
+at a fixed storage budget. At seven bits per source value, spatial precision
+placement reduces measured RMS error by 22.4\% relative to uniform placement;
+a uniform-noise model selects a codec with 4.1\% higher error than the best
+tested candidate. Correlated-source experiments retain cross-block dependence
+through the latent-factor mixture. Bit-packing audits and conjugate-gradient
+solves verify the format and predicted input-conversion errors. An independent train/validation
+experiment tests allocation after estimating the source law from data.
+\end{abstract}
+\begin{keywords}
+block floating point, quantization, rounding error, covariance,
+weighted reduction, stochastic rounding
+\end{keywords}
+\begin{AMS}
+65G50, 65F35, 60G70
+\end{AMS}
+\input{revision/introduction}
+\input{revision/theory_section}
+\input{revision/computation}
+\input{revision/results}
+\input{revision/discussion}
+\section*{Data and code availability}
+The accompanying reproduction package contains the experiment driver, saved
+machine-readable results, figure and table generator, high-precision evaluator,
+exact rational enumeration oracle, and a manifest with random seeds, package
+versions, execution times, and file hashes. The figures and tables in this
+manuscript are generated from that package. The existing project repository is
+\url{https://github.com/NUAApanda-1116/bfp-error-independence}; it records the
+project history, while the accompanying revision package is the submitted
+snapshot and specifies the files required to reproduce this version.
+\bibliographystyle{siamplain}
+\bibliography{references}
+\end{document}
+

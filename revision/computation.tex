@@ -1,0 +1,131 @@
+\section{Computing the moments and designing the experiments}\label{sec:methods}
+\subsection{A deterministic evaluator}
+The statistical moment formulas are exact; their implementation evaluates
+the required input integrals numerically. For a density $f$ and rounding
+cell $J_{d,k}=[(d-1/2)s_k,(d+1/2)s_k)$, the continuous contribution is
+\begin{equation}\label{eq:cell-integration}
+ T_{\ell,k}(t)=\sum_d\int_{J_{d,k}\cap(-t,t)}
+                         (d s_k-x)^\ell f(x)\,dx.
+\end{equation}
+Atoms contribute their probabilities times $h_k(x)^\ell$, with ties to
+even. Expanding the integrand uses cell probabilities and the first two
+truncated input moments. Since $t/s_k\le2^{L+1}$ at both binade endpoints,
+each exponent requires $O(2^L)$ cells, independently of $n$.
+For heterogeneous inputs, these integrals are evaluated coordinatewise.
+The exponential identity \eqref{eq:revision-exp-closed} supplies a separate
+closed-form check.
+
+We form $G(t)^n$ from survival probabilities and logarithms, and use
+\texttt{expm1} differences for nearby log probabilities.
+Equation~\eqref{eq:revision-negative} evaluates the conditional covariance
+stably; centered sums across exponent states evaluate $B$. The evaluator
+records omitted exponent probability and numerical stability diagnostics.
+The large-block exponential calculation uses higher precision to resolve
+survival probabilities below binary64 resolution.
+
+We compare four predictions. The \emph{finite-block prediction} uses
+\eqref{eq:revision-global}--\eqref{eq:revision-decomposition}.
+The \emph{conditional-mean upper prediction} retains $m_k,t_k,v$ and sets
+$C=0$, as in Corollary~\ref{cor:revision-bracket}.
+The \emph{unconditioned-response approximation} mixes moments of $h_k(X)$
+under the original input law with $P_k$ and assumes conditional
+independence. The \emph{uniform-noise prediction} uses
+$\mu=\kappa=0$ and $v=\mathbb E[s_{K_n}^2]/12$.
+
+For an iid law, the evaluator visits the retained exponent states and
+integrates $O(2^L)$ rounding cells per state, so its scalar work is
+$O(K2^L)$ for $K$ retained states and does not grow with the block length
+$n$. For a heterogeneous block of size $b$, the corresponding work is
+$O(K(b2^L+b^2))$ including covariance assembly; storage is $O(b^2)$.
+This is the cost of the population evaluator, separate from Monte Carlo
+sampling and from the linear solve used in the application experiments.
+
+In the tables, ``Exact'' denotes numerical evaluation of the exact moment
+identities. The heterogeneous and latent evaluators retain exponents
+$-40\le k\le35$ and skip states of probability below $10^{-25}$.
+They record omitted-probability and residual-energy bounds separately from
+integration convergence checks. Numerical truncation bounds are therefore
+part of the population prediction, rather than evidence supplied by its
+Monte Carlo interval.
+The application codecs use an 8-bit signed exponent and reject out-of-range
+states; all retained source vectors and all population states lie inside that
+range, so no saturation or exponent clipping is included in the reported
+errors.
+
+\subsection{Independent verification}
+An independent rational oracle enumerates $25{,}600$ blocks in $96$
+configurations: six finite-support laws,
+$n\in\{2,3,4,6\}$, and $L\in\{0,1,2,4\}$.
+It checks the conditional moments, covariance eigenvalues, weighted MSE,
+and certified bracket, including atoms, zero blocks, dyadic endpoints,
+and ties to even. A second oracle enumerates $480$ blocks in $32$
+heterogeneous-input configurations and checks
+Proposition~\ref{prop:revision-nonidentical}, including both conditional
+covariance signs. Rational Green-matrix calculations verify linear
+propagation against direct gradient energy in one and two dimensions.
+Independent lognormal evaluators use analytical cell moments at $60$ and
+$90$ decimal digits to check the homogeneous and heterogeneous moment
+calculations. An $80$-digit Pareto cell integrator agrees with all eight
+binary64 inflation factors to relative error below $8.1\times10^{-10}$.
+
+\subsection{Sampling and measurement}
+The main-grid and weighted experiments use independent blocks, master seed
+$20261010$, and labeled child random streams. Population predictions are
+computed from the input law. For each sampled block we retain
+$S_b=\sum_i e_{b,i}$, $Q_b=\sum_i e_{b,i}^2$, exponent state, and squared
+step, with $s_*=0$. For $B_{\rm MC}$ blocks,
+\begin{equation}\label{eq:mc-estimator}
+ \widehat\mu=\frac{\sum_b S_b}{nB_{\rm MC}},\quad
+ \widehat v=\frac{\sum_b Q_b}{nB_{\rm MC}}-\widehat\mu^2,\quad
+ \widehat{\mathcal I}_n=
+   \frac{\operatorname{sampleVar}_b(S_b)}{n\widehat v}.
+\end{equation}
+The numerator has denominator $B_{\rm MC}-1$. Confidence intervals are
+nominal $95\%$ percentile intervals from $200$ bootstrap resamples of whole
+blocks. We use ``contains'' below to report whether a displayed interval
+contains the population prediction; this is an empirical interval check,
+not a repeated-sampling coverage theorem. Application-specific streams,
+sample counts, and vector-bootstrap protocols are given with their
+experiments.
+
+The main grid uses $\mathcal N(0,1)$, $\exp(Z)$, $|Z|$, $\max(Z,0)$
+for $Z\sim\mathcal N(0,1)$, $\operatorname{Exp}(1)$, and Pareto$(4)$
+with $\mathbb P(X>x)=x^{-4}$ for $x\ge1$.
+Combining $n\in\{32,128,512,4096\}$ with $L\in\{2,4\}$ gives $48$
+round-to-nearest configurations, with respectively
+$100{,}000$, $40{,}000$, $20{,}000$, and $6{,}000$ blocks.
+Eight stochastic-rounding controls use $n=128$, both precisions, and
+Gaussian, lognormal, half-normal, and ReLU inputs.
+Six small-block cases use Beta$(2,5)$ and exponential inputs at $n=2,4,8$,
+$L=2$, with $150{,}000$ blocks each; two more Beta cases use
+$n=32,128$, $L=2$, and the corresponding main-grid block counts.
+This gives $64$ configurations.
+
+Pareto$(4)$ has an infinite fourth moment, and ordinary samples can miss
+rare exponent states that contribute substantially to second moments.
+We therefore sample all eight Pareto configurations by exponent strata
+and retain the ordinary results in the package. State $k$ receives
+$\max(100,\operatorname{round}(30{,}000P_k))$ conditional blocks.
+To draw one, sample the maximum by inversion uniformly between
+$G(a_k)^n$ and $G(b_k)^n$, then draw the remaining $n-1$ coordinates
+independently below that maximum. Placing the maximum last preserves
+the symmetric statistics $S_b,Q_b$.
+
+The stratified estimator combines the first and second moments of
+$S_b,Q_b$ with analytical state probabilities, renormalized over retained
+states. A variance correction removes the squared-mean estimation bias.
+Bootstrap resampling occurs within each stratum with its population
+weight fixed. Allocations and omitted-mass diagnostics are saved.
+For Pareto$(4)$ and $T\ge1$, the omitted upper-tail marginal second moment
+satisfies
+\begin{equation}\label{eq:pareto-tail-bound}
+ \mathbb E[e_1^2\mathbf1_{\{M_n\ge T\}}]
+ \le\frac{\mathbb E[M_n^2\mathbf1_{\{M_n\ge T\}}]}{4\,2^{2L}}
+ \le\frac{n}{2\,2^{2L}T^2}.
+\end{equation}
+
+Weighted reductions use $50{,}000$ paired lognormal blocks at $n=128$,
+$L=2$, deterministic coefficients, and binary64 products and reductions.
+We record mean error, centered variance, and MSE separately for shared
+scales and partitions. The exponential asymptotic experiment evaluates
+the moment formulas at high precision along the theorem's subsequence.

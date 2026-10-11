@@ -1,0 +1,75 @@
+\section{Implications for reductions and compression}\label{sec:discussion}
+The moment formulas connect the input distribution, block partition, and
+linear operator to the output error. For identical coordinate laws, the
+weight sum determines how strongly the common error component enters a
+reduction. Balanced weights remove the bias and the term proportional to
+$(\mathbf1^Tw)^2$, leaving $(v-\kappa)\|w\|_2^2$. Positive weights can
+instead accumulate both covariance and bias. This explains why stochastic
+rounding can improve a positive-weight reduction while increasing the
+mean-square error of a balanced one: its larger marginal variance is then
+the deciding term. The appropriate rounding rule depends on the weights
+and the accuracy criterion.
+
+Partitioning changes both the selected scales and the covariance structure.
+Each candidate partition therefore requires its own moments. The storage
+cost of additional scales also changes the available coefficient precision.
+In an elliptic solve, block layout further determines how the covariance
+aligns with the Green operator. A model that retains only marginal error
+variances loses this interaction, even when it estimates those variances
+accurately. The equal-budget experiments demonstrate how the complete
+moments predict solution error and guide the comparison of prescribed
+compression choices. The calibration experiment shows how this workflow
+degrades when the source law is estimated from a separate sample.
+
+Block length and total problem size have different effects. If $N=Kn$
+independent inputs occupy $K$ identical blocks of fixed length $n$, their
+total error satisfies
+\begin{equation}\label{eq:multiblock-mse}
+ \mathbb E\left[\left(\sum_{i=1}^{N}e_i\right)^2\right]
+ =Nv\mathcal I_n+N^2\mu^2.
+\end{equation}
+The centered standard deviation grows as $\sqrt N$, while a nonzero mean
+error contributes quadratically to mean-square error. An inflation factor
+describes the centered component; accuracy assessment requires both terms.
+
+The exponential counterexample concerns growth of the block itself. At
+fixed grid precision, its increasing maximum makes each fixed coordinate
+eventually round to zero. The error approaches the negative input, and
+pair correlation vanishes, but multiplication by $n-1$ still permits
+diverging inflation. The dyadic location of the maximum produces pronounced
+changes with block length. The exact finite-block evaluator resolves these
+changes without extrapolating a power law from one phase.
+
+Latent factors separate a structured field's common fluctuations from its
+independent innovations. Conditional moment evaluation preserves dependence
+between spatial blocks through the varying mean error. More general joint
+laws require joint truncated moments; data-dependent weights require mixed moments of
+the weights and quantization errors. Quantizing both operands and including
+product or accumulation rounding adds further error terms. Saturation,
+nonuniform element grids, and finite random bits can be incorporated by
+supplying the corresponding scalar quantizer moments
+\cite{elarar2024}.
+The applications use a uniform integer-mantissa grid with an 8-bit signed
+exponent and binary64 arithmetic. They establish accuracy comparisons at a
+fixed payload budget for specified source laws and discrete operators.
+Transfer to measured scientific fields, nonuniform MX element grids,
+saturation, and low-precision accumulation requires separate validation.
+Encoding cost, memory traffic, and solver speed were not measured.
+
+\section{Conclusions}\label{sec:conclusions}
+Maximum-selected block quantization creates two competing covariance terms:
+variation of the conditional error mean and the correction caused by
+excluding an all-small block. One-dimensional truncated moments compute
+both exactly and give variance and mean-square error predictions for
+weighted reductions. For identical input laws, dropping the conditional
+pair correction has a distribution-free additive error bound of one in
+the variance inflation factor. The heterogeneous and conditional-mixture
+extensions supply the covariance for spatially varying and correlated sources.
+
+The support limits and exponential counterexample show why fixed-pair
+decorrelation does not imply unit inflation. The experiments verify the
+finite-block identities and connect the resulting moments to weight
+balance, storage allocation, spatial layout, and elliptic solution error.
+Together, the analysis and evaluator turn a statistical quantization model
+into a computable accuracy prediction for a specified input law and
+compression design.

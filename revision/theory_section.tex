@@ -1,0 +1,440 @@
+\section{Exact finite-block analysis}\label{sec:exact}
+
+Let $X_1,\ldots,X_n$ be independent copies of a real random variable $X$,
+where $n\ge2$, $\mathbb E[X^2]<\infty$, and $L$ is a fixed nonnegative
+integer. Set $M_n=\max_i|X_i|$. When $M_n>0$, define
+\begin{equation}\label{eq:revision-format}
+ K_n=\lfloor\log_2 M_n\rfloor,\qquad s_k=2^{k-L},\qquad
+ h_k(x)=s_k\operatorname{RN}(x/s_k)-x,\qquad e_i=h_{K_n}(X_i),
+\end{equation}
+with round-to-nearest, ties-to-even on an unsaturated uniform integer grid.
+The all-zero block has state $*$ and zero errors.
+The analysis treats input conversion; weights and linear operators are fixed.
+Independent heterogeneous laws and conditionally independent inputs are
+introduced in Section~\ref{sec:nonidentical}. For a selected nonzero block,
+$|X_i/s_{K_n}|<2^{L+1}$, so the rounded integer coefficient has magnitude
+at most $2^{L+1}$. A signed integer of width $L+3$ therefore suffices,
+including rounding to the positive endpoint. The experimental codecs use an
+8-bit signed block exponent and count all coefficient and padding bits.
+
+The error vector is exchangeable because its construction commutes with
+permutations of the inputs. Write
+\begin{equation}\label{eq:revision-statistics}
+ \mu=\mathbb E[e_1],\quad v=\operatorname{Var}(e_1)>0,\quad
+ \kappa=\operatorname{Cov}(e_1,e_2),\quad
+ \mathcal I_n=\frac{\operatorname{Var}(\sum_i e_i)}{nv}
+             =1+(n-1)\frac{\kappa}{v}.
+\end{equation}
+The positivity of $v$ is needed only for ratios; the moment identities below
+also hold when $v=0$.
+
+\subsection{A closed conditional covariance formula}
+
+Use the strict distribution function
+$G(t)=\mathbb P(|X|<t)$ for $t>0$. For an exponent $k$, put
+\begin{equation}\label{eq:revision-truncations}
+ \begin{gathered}
+ a_k=2^k,\quad b_k=2^{k+1},\quad p_k=G(a_k),\quad q_k=G(b_k),\\
+ P_k=q_k^n-p_k^n,\qquad
+ T_{\ell,k}(t)=\mathbb E[h_k(X)^\ell\mathbf 1_{\{|X|<t\}}].
+ \end{gathered}
+\end{equation}
+The use of strict inequalities assigns atoms at $a_k$ and $b_k$ to the
+correct binades. The exponent states have total mass
+$1-\mathbb P(X=0)^n$; the remaining mass $P_*=\mathbb P(X=0)^n$ belongs to $*$.
+
+\begin{theorem}[Exact conditional moments and negative conditional covariance]
+\label{thm:revision-exact}
+For every $k$ with $P_k>0$, define
+$m_k=\mathbb E[e_1\mid K_n=k]$,
+$t_k=\mathbb E[e_1^2\mid K_n=k]$, and
+$c_k=\operatorname{Cov}(e_1,e_2\mid K_n=k)$. Then
+\begin{align}
+ m_k&=\frac{q_k^{n-1}T_{1,k}(b_k)-p_k^{n-1}T_{1,k}(a_k)}{P_k},
+       \label{eq:revision-moment1}\\
+ t_k&=\frac{q_k^{n-1}T_{2,k}(b_k)-p_k^{n-1}T_{2,k}(a_k)}{P_k},
+       \label{eq:revision-moment2}\\
+ \mathbb E[e_1e_2\mid K_n=k]
+   &=\frac{q_k^{n-2}T_{1,k}(b_k)^2-p_k^{n-2}T_{1,k}(a_k)^2}{P_k}.
+       \label{eq:revision-pair}
+\end{align}
+If $p_k>0$, put
+$u_k=T_{1,k}(a_k)/p_k$,
+$z_k=T_{1,k}(b_k)/q_k$, and $r_k=(p_k/q_k)^n$. Then
+\begin{equation}\label{eq:revision-negative}
+ m_k=\frac{z_k-r_k u_k}{1-r_k},\qquad
+ c_k=-\frac{r_k}{(1-r_k)^2}(z_k-u_k)^2\le0.
+\end{equation}
+Products associated with a zero-probability event in
+\eqref{eq:revision-pair} are understood as zero, including when $n=2$.
+If $p_k=0$, the formulas reduce to $m_k=z_k$ and $c_k=0$.
+The same identities hold for any measurable deterministic scalar response
+$h_k$ applied identically to each coordinate, with the required moments.
+\end{theorem}
+
+\begin{proof}
+The event $\{K_n=k\}$ is the difference between the nested events
+$\{M_n<b_k\}$ and $\{M_n<a_k\}$. Independence gives
+\begin{align*}
+ \mathbb E[h_k(X_1)\mathbf 1_{\{M_n<t\}}]
+     &=G(t)^{n-1}T_{1,k}(t),\\
+ \mathbb E[h_k(X_1)h_k(X_2)\mathbf 1_{\{M_n<t\}}]
+     &=G(t)^{n-2}T_{1,k}(t)^2.
+\end{align*}
+Subtract the expressions at $t=a_k$ from those at $t=b_k$ and divide by
+$P_k$. The second-moment identity follows in the same way. Substitution of
+$T_{1,k}(a_k)=p_k u_k$ and $T_{1,k}(b_k)=q_k z_k$ yields
+$\mathbb E[e_1e_2\mid K_n=k]=(z_k^2-r_k u_k^2)/(1-r_k)$.
+Subtracting $m_k^2$ gives \eqref{eq:revision-negative}. If $p_k=0$,
+conditioning only truncates each input at $b_k$, preserving independence.
+\end{proof}
+
+The sign in \eqref{eq:revision-negative} has a precise origin. Conditioning
+on the exponent first restricts every input to $|X_i|<b_k$, then excludes
+the event that all inputs satisfy $|X_i|<a_k$. The resulting selection
+induces a nonpositive covariance between two copies of the same scalar
+response. Consequently, conditional uncorrelatedness is an additional
+restriction, not a consequence of sharing the exponent: when $p_k>0$, it
+holds exactly if $u_k=z_k$.
+
+For the state $*$, set $m_*=t_*=c_*=0$. Including this state in every sum,
+the complete population quantities are
+\begin{align}
+ \mu&=\sum_k P_km_k,&
+ v&=\sum_kP_kt_k-\mu^2,\label{eq:revision-global}\\
+ B&=\operatorname{Var}(m_{K_n})
+      =\sum_kP_k(m_k-\mu)^2,&
+ C&=\sum_kP_kc_k\le0,\qquad \kappa=B+C.
+ \label{eq:revision-decomposition}
+\end{align}
+The term $B$ describes variation of the conditional mean between exponent
+states; $C$ is the negative correction within a state. Their sum can have
+either sign.
+
+\begin{corollary}[A certified bound for omitting the conditional covariance]
+\label{cor:revision-bracket}
+Let $A=\mathbb E[\operatorname{Var}(e_1\mid K_n)]$, so $v=A+B$. Then
+\begin{equation}\label{eq:revision-bracket}
+ \frac{nB}{v}\le\mathcal I_n
+       \le1+(n-1)\frac{B}{v}\le n,
+ \qquad
+ 0\le \left(1+(n-1)\frac{B}{v}\right)-\mathcal I_n\le\frac{A}{v}\le1.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The law of total variance gives
+$\operatorname{Var}(\sum_i e_i)
+=\mathbb E[\operatorname{Var}(\sum_i e_i\mid K_n)]+n^2 B\ge n^2B$.
+The upper bound follows from $C\le0$ in
+$\mathcal I_n=1+(n-1)(B+C)/v$; subtracting the lower bound proves the
+absolute-error estimate. Finally $B\le v$.
+\end{proof}
+
+Omitting $C$ therefore overestimates $\mathcal I_n$ by at most one. When
+$\mathcal I_n>0$, its relative error is at most $1/\mathcal I_n$; the
+absolute bound remains valid at the positive-semidefinite boundary
+$\mathcal I_n=0$.
+
+\subsection{Weighted reductions and rounding controls}
+
+The covariance matrix has the form
+\begin{equation}\label{eq:revision-spectrum}
+ \Sigma=(v-\kappa)I+\kappa\mathbf 1\mathbf 1^T.
+\end{equation}
+Its eigenvalues are $v-\kappa$ in the $n-1$ directions orthogonal to
+$\mathbf1$, and $v+(n-1)\kappa=v\mathcal I_n$ in the common direction.
+Both are nonnegative, giving the usual bounds $0\le\mathcal I_n\le n$.
+For deterministic weights $w\in\mathbb R^n$, the error in an exact reduction
+of the quantized inputs is $E_w=\sum_iw_ie_i$. In particular,
+\begin{equation}\label{eq:revision-weighted}
+ \mathbb E[E_w]=\mu\mathbf1^Tw,\qquad
+ \mathbb E[E_w^2]=(v-\kappa)\|w\|_2^2
+                  +(\kappa+\mu^2)(\mathbf1^Tw)^2.
+\end{equation}
+This separates coherent bias from covariance. For an unweighted sum,
+$\mathbb E[E_{\mathbf1}^2]=nv\mathcal I_n+n^2\mu^2$; an inflation factor
+alone therefore does not measure its mean-square error. For $\mathbf1^Tw=0$,
+the bias and the common-direction contribution vanish.
+
+The effect of deleting $C$ depends on the weights. If $V_w$ denotes the
+true centered variance and $\widetilde V_w$ is obtained by replacing
+$\kappa=B+C$ by $B$ while retaining $v$, then
+\begin{equation}\label{eq:revision-weighted-approximation}
+ \widetilde V_w-V_w
+ =-C\bigl((\mathbf1^Tw)^2-\|w\|_2^2\bigr),\qquad
+ |\widetilde V_w-V_w|
+ \le\frac{A}{n-1}
+       \bigl|(\mathbf1^Tw)^2-\|w\|_2^2\bigr|
+ \le A\|w\|_2^2.
+\end{equation}
+Indeed, Corollary~\ref{cor:revision-bracket} gives
+$0\le-C\le A/(n-1)$, and Cauchy--Schwarz gives the last inequality.
+The same difference applies to mean-square error because the retained bias
+is unchanged. For weights summing to zero, deleting $C$ underestimates the
+centered variance; for an unweighted sum it overestimates it.
+
+\begin{proposition}[Symmetry and stochastic-rounding controls]
+\label{prop:revision-controls}
+For the quantizer in \eqref{eq:revision-format}, a distribution symmetric
+about zero gives $m_k=c_k=0$ for every state, hence $\mu=\kappa=0$ and
+$\mathcal I_n=1$ whenever $v>0$. For stochastic rounding with independent
+rounding choices conditional on the full input block, $\mu=\kappa=0$ for
+any input law, even without independence between the inputs. Its marginal
+variance is
+\begin{equation}\label{eq:revision-sr}
+ v_{\rm SR}=\mathbb E[s_{K_n}^2\theta_1(1-\theta_1)],\qquad
+ \theta_1=\operatorname{frac}(X_1/s_{K_n}),
+\end{equation}
+with the integrand zero in the all-zero state.
+\end{proposition}
+
+\begin{proof}
+Oddness of round-to-nearest on symmetric truncation sets gives
+$T_{1,k}(t)=0$, and Theorem~\ref{thm:revision-exact} proves the first claim.
+Here stochastic rounding means ideal independent random bits conditional on
+the complete input block; finite-bit implementations require a separate
+randomness audit. Stochastic rounding has conditional mean zero and second moment
+$s^2\theta_i(1-\theta_i)$ \cite{connolly2021,croci2022}.
+Independent choices give zero conditional cross moments; taking expectations
+proves \eqref{eq:revision-sr}.
+\end{proof}
+
+\begin{example}[Conditional exclusion can produce variance deflation]
+\label{ex:revision-deflation}
+Let $\mathbb P(X=13/10)=\mathbb P(X=41/20)=1/2$ and $L=2$.
+An all-small block has step $1/4$ and every error is $-1/20$. Every other
+block has step $1/2$; its small inputs have error $1/5$, and its large
+inputs have error $-1/20$. Direct enumeration gives
+\begin{equation}\label{eq:revision-deflation}
+ \mathcal I_n=1-\frac{(n-1)4^{-n}}{1/4-4^{-n}}<1.
+\end{equation}
+At $n=2$, $v=3/256$, $\kappa=-1/256$, and $\mathcal I_2=2/3$.
+The conditional-mean contribution is $B=1/768$, so omitting $C$ instead
+predicts $10/9$. This reverses the qualitative conclusion.
+\end{example}
+
+\subsection{Independent inputs with different distributions}
+\label{sec:nonidentical}
+
+\begin{proposition}[Conditional moments for independent nonidentical inputs]
+\label{prop:revision-nonidentical}
+Let $X_1,\ldots,X_n$ be independent, each with a finite second moment, and
+use the same maximum-selected grid as in \eqref{eq:revision-format}. At a
+fixed exponent $k$ with $P_k>0$ (and hence $q_i>0$ for every $i$), write
+$p_i=\mathbb P(|X_i|<a_k)$,
+$q_i=\mathbb P(|X_i|<b_k)$, and
+$P_k=\prod_iq_i-\prod_ip_i>0$. For $\ell\in\{1,2\}$ define
+\[
+ z_{\ell,i}=\mathbb E[h_k(X_i)^\ell\mid |X_i|<b_k],\qquad
+ u_{\ell,i}=\mathbb E[h_k(X_i)^\ell\mid |X_i|<a_k]
+ \quad\text{when }p_i>0.
+\]
+If every $p_i>0$, put $r=\prod_i(p_i/q_i)$. Then
+\begin{align}
+ \mathbb E[e_i^\ell\mid K_n=k]
+   &=\frac{z_{\ell,i}-r u_{\ell,i}}{1-r},
+       \label{eq:revision-nonidentical-marginal}\\
+ \mathbb E[e_ie_j\mid K_n=k]
+   &=\frac{z_{1,i}z_{1,j}-r u_{1,i}u_{1,j}}{1-r},\qquad i\ne j,
+       \label{eq:revision-nonidentical-pair}\\
+ \operatorname{Cov}(e_i,e_j\mid K_n=k)
+   &=-\frac{r}{(1-r)^2}
+       (z_{1,i}-u_{1,i})(z_{1,j}-u_{1,j}).
+       \label{eq:revision-nonidentical-covariance}
+\end{align}
+If any $p_i=0$, the conditional inputs are independent under the upper
+truncations: the marginal moments are $z_{\ell,i}$, the pair moments are
+$z_{1,i}z_{1,j}$, and all conditional pair covariances are zero.
+The all-zero state has probability $\prod_i\mathbb P(X_i=0)$ and zero
+error moments.
+\end{proposition}
+
+\begin{proof}
+On the upper rectangular event $\{M_n<b_k\}$, each marginal moment factors
+as $\prod_iq_i$ times its normalized truncated moment; pair moments factor
+as $\prod_iq_i$ times the product of the two truncated means. Subtract the
+corresponding lower-event expressions and divide by $P_k$. Subtracting
+the product of the conditional means yields
+\eqref{eq:revision-nonidentical-covariance}. If any $p_i=0$, the lower
+event has probability zero, leaving only independent upper truncations.
+\end{proof}
+
+The unconditional moments follow by mixing these states, including the
+all-zero state. In particular, with
+$m_{i,k}=\mathbb E[e_i\mid K_n=k]$ and
+$c_{ij,k}=\operatorname{Cov}(e_i,e_j\mid K_n=k)$,
+\[
+ \operatorname{Cov}(e_i,e_j)
+ =\operatorname{Cov}(m_{i,K_n},m_{j,K_n})+\sum_kP_kc_{ij,k}.
+\]
+The conditional covariance can have either sign because the two
+truncated-mean differences need not agree in sign.
+
+\begin{corollary}[Conditional mixtures]\label{cor:conditional-mixture}
+Suppose the coordinates are independent conditional on a random variable
+$Y$, and have finite unconditional second moments. Let $m(y)$ and $\Sigma(y)$
+be the full error mean and covariance obtained from
+Proposition~\ref{prop:revision-nonidentical} at $Y=y$. Then
+\begin{equation}\label{eq:conditional-mixture}
+ \mathbb E[e]=\mathbb E_Y[m(Y)],\qquad
+ \operatorname{Cov}(e)=\mathbb E_Y[\Sigma(Y)]
+                         +\operatorname{Cov}_Y(m(Y)).
+\end{equation}
+For several blocks, $\Sigma(y)$ is block diagonal; the second term includes
+covariances between blocks.
+\end{corollary}
+\begin{proof}
+Apply the conditional moment formulas for almost every $y$, followed by
+total expectation and total covariance. Since $|e_i|\le|X_i|$,
+the required moments are integrable.
+\end{proof}
+
+\section{Asymptotic behavior and an unbounded counterexample}\label{sec:revision-asymptotics}
+
+Bounded support fixes the exponent eventually. Unbounded support forces
+the grid to become arbitrarily coarse. The second mechanism removes
+correlation between a fixed pair of errors, but does not guarantee that
+the accumulated variance ratio tends to one.
+
+\begin{proposition}[Bounded support and fixed-pair decorrelation]
+\label{prop:revision-support}
+The following statements hold at fixed $L$.
+\begin{enumerate}
+\item Suppose $|X|$ is bounded and
+$k_* =\max\{k:\mathbb P(|X|\ge2^k)>0\}$ exists. Put
+$p=\mathbb P(|X|<2^{k_*})<1$ and
+$v_*=\operatorname{Var}(h_{k_*}(X))$. If $v_*>0$, then
+\begin{equation}\label{eq:revision-bounded}
+ v\longrightarrow v_*,\qquad |\kappa|=O(p^n),\qquad
+ |\mathcal I_n-1|=O(np^n).
+\end{equation}
+If $p=0$, the exponent is fixed and $\mathcal I_n=1$ for every $n$.
+\item Suppose $|X|$ has unbounded support and
+$\sigma_X^2=\operatorname{Var}(X)>0$. Then
+\begin{equation}\label{eq:revision-unbounded}
+ \begin{gathered}
+ e_i\longrightarrow-X_i\ \text{in }L^2\ \text{for each fixed }i,
+ \qquad \mu\longrightarrow-\mathbb E[X],\\
+ v\longrightarrow\sigma_X^2,\qquad
+ \kappa\longrightarrow0,\qquad \frac{\mathcal I_n}{n}\longrightarrow0.
+ \end{gathered}
+\end{equation}
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For bounded support, $\mathbb P(K_n\ne k_*)=p^n$.
+Couple $e_i$ to the fixed-step error $e_i^*=h_{k_*}(X_i)$ on the same
+inputs. These errors coincide outside that event and are uniformly bounded.
+Consequently, their first, second, and pair moments differ by $O(p^n)$.
+The $e_i^*$ are independent, so $\kappa=O(p^n)$, and $v\to v_*>0$
+gives \eqref{eq:revision-bounded}.
+
+For unbounded support, realize all blocks as prefixes of an infinite i.i.d.
+sequence. Almost surely $M_n\to\infty$, hence $s_{K_n}\to\infty$.
+For each fixed $i$, eventually $|X_i|<s_{K_n}/2$, and
+$\widehat X_i=0$. The grid includes zero, so its nearest point satisfies
+$|e_i|\le|X_i|$ and $|\widehat X_i|\le2|X_i|$. Dominated convergence
+gives $\widehat X_i\to0$ in $L^2$. The limits of $\mu$, $v$, and
+$\kappa$ follow from this convergence and the independence of $X_1,X_2$.
+Equation~\eqref{eq:revision-statistics} then gives $\mathcal I_n/n\to0$.
+\end{proof}
+
+The unbounded result cannot be strengthened to $\mathcal I_n\to1$ under
+these assumptions. The factor $n-1$ in
+\eqref{eq:revision-statistics} can amplify a covariance that tends to zero.
+The following light-tailed example makes this obstruction explicit.
+
+\begin{theorem}[Diverging inflation for exponential inputs]
+\label{thm:revision-exponential}
+Let $X\sim\operatorname{Exp}(1)$ and keep $L\ge0$ fixed. For
+$a_j=2^j$ and $n_j=\lfloor\exp(a_j)\rfloor$, define
+$\beta=2^{-L-2}$. Then
+\begin{equation}\label{eq:revision-exp-asymptotic}
+ \mathcal I_{n_j}\sim
+ e^{-1}(1-e^{-1})\,2^{-2L-2}
+          (\log n_j)^2n_j^{1-2\beta}
+ \qquad (j\to\infty).
+\end{equation}
+In particular $\mathcal I_{n_j}\to\infty$, although
+$\kappa_{n_j}\to0$ and $\mathcal I_{n_j}/n_j\to0$.
+\end{theorem}
+
+\begin{proof}
+Throughout the proof, $a=a_j$ and $n=n_j$. The two exponent probabilities
+are
+\begin{align*}
+ P_{j-1}&=(1-e^{-a})^n-(1-e^{-a/2})^n\longrightarrow e^{-1},\\
+ P_j&=(1-e^{-2a})^n-(1-e^{-a})^n\longrightarrow1-e^{-1},
+\end{align*}
+because $ne^{-a}\to1$, $ne^{-a/2}\to\infty$, and $ne^{-2a}\to0$.
+We first compute the conditional moments exactly, then control the
+remaining exponent states to obtain the asymptotic equivalence.
+
+For a fixed step $s$, the layer-cake formula for the nonnegative quantized
+value gives
+\begin{equation}\label{eq:revision-exp-response}
+ H(s):=\mathbb E[s\operatorname{RN}(X/s)]
+ =s\sum_{m=1}^{\infty}e^{-(m-1/2)s}
+ =\frac{s e^{-s/2}}{1-e^{-s}},\qquad \mathbb E[h_s(X)]=H(s)-1.
+\end{equation}
+Here ties have probability zero. Away from ties, $h_s$ and $h_s^2$ are
+periodic with period $s$. For a positive integer $m$ and either response
+$\varphi=h_s$ or $h_s^2$, shifting the exponential tail gives
+\[
+ \mathbb E[\varphi(X)\mathbf1_{\{X\ge ms\}}]
+   =e^{-ms}\mathbb E[\varphi(X)].
+\]
+Both binade endpoints are integer multiples of their step:
+$a_k/s_k=2^L$, $b_k/s_k=2^{L+1}$. Consequently, truncation at either
+endpoint preserves the normalized first and second response moments.
+Theorem~\ref{thm:revision-exact} therefore gives, for every state,
+$m_k=H(s_k)-1$ and $c_k=0$.
+The second moment follows by integrating one period:
+\[
+ t_k=\frac{\int_0^{s_k/2}x^2e^{-x}\,dx
+                +\int_{s_k/2}^{s_k}(s_k-x)^2e^{-x}\,dx}{1-e^{-s_k}}
+       =2-2H(s_k).
+\]
+Thus, with $R=H(s_{K_n})$, the population moments have the closed form
+\begin{equation}\label{eq:revision-exp-closed}
+ \mu=\mathbb E[R]-1,\qquad v=1-(\mathbb E[R])^2,\qquad
+ B=\operatorname{Var}(R),\qquad C=0.
+\end{equation}
+
+For state $j-1$, the step is $s_-=a/2^{L+1}$; the step in state $j$ is
+$s_+=2s_-$. Put $H_-=H(s_-)$ and $H_+=H(s_+)$. By
+\eqref{eq:revision-exp-response},
+$H_-\sim2^{-L-1}a e^{-\beta a}$ and $H_+/H_-\to0$.
+Also $H(s)=s/(2\sinh(s/2))$ is decreasing and satisfies $0<H(s)\le1$;
+the explicit hyperbolic form gives $H'(s)<0$ and $H_+/H_-\to0$.
+The derivative is negative for $s>0$, which also shows $H_+/H_-$ tends to zero.
+The total probability of all lower states is
+\[
+ \delta_n=\mathbb P(K_n\le j-2)
+       =(1-e^{-a/2})^n\le \exp(-ne^{-a/2})
+       =\exp(-\sqrt n(1+o(1))).
+\]
+It follows that $\delta_n=o(H_-^2)$. In every upper state $k\ge j$,
+$R\le H_+=o(H_-)$. These bounds control all omitted states: the lower
+states contribute at most $\delta_n$ to either the first or the second
+moment of $R$, and the upper states contribute at most $H_+$ and $H_+^2$,
+respectively. Therefore
+\[
+ \mathbb E[R]=P_{j-1}H_-+o(H_-),\qquad
+ \mathbb E[R^2]=P_{j-1}H_-^2+o(H_-^2),
+\]
+and hence
+$B\sim e^{-1}(1-e^{-1})H_-^2$.
+Equation~\eqref{eq:revision-exp-closed} gives $v\to1$ and
+$\mathcal I_n=1+(n-1)B/v$. Since $1-2\beta>0$,
+the latter expression is asymptotic to $nB$.
+Finally $a/\log n\to1$ and $e^{-\beta a}\sim n^{-\beta}$, proving
+\eqref{eq:revision-exp-asymptotic}.
+\end{proof}
+
+For $L=2$ the exponent in this asymptotic law is $7/8$. Thus a finite second
+moment guarantees fixed-pair decorrelation but allows the inflation of a
+block sum to grow without bound. The position of the block maximum relative
+to powers of two matters even for an exponential tail.

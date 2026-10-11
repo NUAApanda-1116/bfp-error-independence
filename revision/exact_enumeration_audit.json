@@ -1,0 +1,966 @@
+{
+  "passed": 96,
+  "enumerated_states": 25600,
+  "records": [
+    {
+      "law": "manuscript_counterexample",
+      "n": 2,
+      "L": 0,
+      "states": 4,
+      "mean": "3/40",
+      "variance": "9/64",
+      "covariance": "0",
+      "inflation": "1"
+    },
+    {
+      "law": "manuscript_counterexample",
+      "n": 2,
+      "L": 1,
+      "states": 4,
+      "mean": "-1/20",
+      "variance": "1/32",
+      "covariance": "1/64",
+      "inflation": "3/2"
+    },
+    {
+      "law": "manuscript_counterexample",
+      "n": 2,
+      "L": 2,
+      "states": 4,
+      "mean": "1/80",
+      "variance": "3/256",
+      "covariance": "-1/256",
+      "inflation": "2/3"
+    },
+    {
+      "law": "manuscript_counterexample",
+      "n": 2,
+      "L": 4,
+      "states": 4,
+      "mean": "-11/320",
+      "variance": "3/4096",
+      "covariance": "3/4096",
+      "inflation": "2"
+    },
+    {
+      "law": "manuscript_counterexample",
+      "n": 3,
+      "L": 0,
+      "states": 8,
+      "mean": "1/5",
+      "variance": "5/32",
+      "covariance": "1/64",
+      "inflation": "6/5"
+    },
+    {
+      "law": "manuscript_counterexample",
+      "n": 3,
+      "L": 1,
+      "states": 8,
+      "mean": "-9/80",
+      "variance": "7/256",
+      "covariance": "3/256",
+      "inflation": "13/7"
+    },
+    {
+      "law": "manuscript_counterexample",
+      "n": 3,
+      "L": 2,
+      "states": 8,
+      "mean": "7/160",
+      "variance": "15/1024",
+      "covariance": "-1/1024",
+      "inflation": "13/15"
+    },
+    {
+      "law": "manuscript_counterexample",
+      "n": 3,
+      "L": 4,
+      "states": 8,
+      "mean": "-27/640",
+      "variance": "7/16384",
+      "covariance": "7/16384",
+      "inflation": "3"
+    },
+    {
+      "law": "manuscript_counterexample",
+      "n": 4,
+      "L": 0,
+      "states": 16,
+      "mean": "21/80",
+      "variance": "39/256",
+      "covariance": "3/256",
+      "inflation": "16/13"
+    },
+    {
+      "law": "manuscript_counterexample",
+      "n": 4,
+      "L": 1,
+      "states": 16,
+      "mean": "-23/160",
+      "variance": "23/1024",
+      "covariance": "7/1024",
+      "inflation": "44/23"
+    },
+    {
+      "law": "manuscript_counterexample",
+      "n": 4,
+      "L": 2,
+      "states": 16,
+      "mean": "19/320",
+      "variance": "63/4096",
+      "covariance": "-1/4096",
+      "inflation": "20/21"
+    },
+    {
+      "law": "manuscript_counterexample",
+      "n": 4,
+      "L": 4,
+      "states": 16,
+      "mean": "-59/1280",
+      "variance": "15/65536",
+      "covariance": "15/65536",
+      "inflation": "4"
+    },
+    {
+      "law": "manuscript_counterexample",
+      "n": 6,
+      "L": 0,
+      "states": 64,
+      "mean": "99/320",
+      "variance": "591/4096",
+      "covariance": "15/4096",
+      "inflation": "222/197"
+    },
+    {
+      "law": "manuscript_counterexample",
+      "n": 6,
+      "L": 1,
+      "states": 64,
+      "mean": "-107/640",
+      "variance": "287/16384",
+      "covariance": "31/16384",
+      "inflation": "442/287"
+    },
+    {
+      "law": "manuscript_counterexample",
+      "n": 6,
+      "L": 2,
+      "states": 64,
+      "mean": "91/1280",
+      "variance": "1023/65536",
+      "covariance": "-1/65536",
+      "inflation": "1018/1023"
+    },
+    {
+      "law": "manuscript_counterexample",
+      "n": 6,
+      "L": 4,
+      "states": 64,
+      "mean": "-251/5120",
+      "variance": "63/1048576",
+      "covariance": "63/1048576",
+      "inflation": "6"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 2,
+      "L": 0,
+      "states": 4,
+      "mean": "-11/80",
+      "variance": "59/6400",
+      "covariance": "-1/1280",
+      "inflation": "54/59"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 2,
+      "L": 1,
+      "states": 4,
+      "mean": "-1/80",
+      "variance": "99/6400",
+      "covariance": "-9/1280",
+      "inflation": "6/11"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 2,
+      "L": 2,
+      "states": 4,
+      "mean": "-19/320",
+      "variance": "219/102400",
+      "covariance": "31/20480",
+      "inflation": "374/219"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 2,
+      "L": 4,
+      "states": 4,
+      "mean": "19/1280",
+      "variance": "219/1638400",
+      "covariance": "31/327680",
+      "inflation": "374/219"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 3,
+      "L": 0,
+      "states": 8,
+      "mean": "-27/160",
+      "variance": "271/25600",
+      "covariance": "3/5120",
+      "inflation": "301/271"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 3,
+      "L": 1,
+      "states": 8,
+      "mean": "3/160",
+      "variance": "511/25600",
+      "covariance": "-13/5120",
+      "inflation": "381/511"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 3,
+      "L": 2,
+      "states": 8,
+      "mean": "-43/640",
+      "variance": "591/409600",
+      "covariance": "67/81920",
+      "inflation": "1261/591"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 3,
+      "L": 4,
+      "states": 8,
+      "mean": "43/2560",
+      "variance": "591/6553600",
+      "covariance": "67/1310720",
+      "inflation": "1261/591"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 4,
+      "L": 0,
+      "states": 16,
+      "mean": "-59/320",
+      "variance": "1079/102400",
+      "covariance": "11/20480",
+      "inflation": "1244/1079"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 4,
+      "L": 1,
+      "states": 16,
+      "mean": "11/320",
+      "variance": "2199/102400",
+      "covariance": "-21/20480",
+      "inflation": "628/733"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 4,
+      "L": 2,
+      "states": 16,
+      "mean": "-91/1280",
+      "variance": "1719/1638400",
+      "covariance": "139/327680",
+      "inflation": "1268/573"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 4,
+      "L": 4,
+      "states": 16,
+      "mean": "91/5120",
+      "variance": "1719/26214400",
+      "covariance": "139/5242880",
+      "inflation": "1268/573"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 6,
+      "L": 0,
+      "states": 64,
+      "mean": "-251/1280",
+      "variance": "16679/1638400",
+      "covariance": "59/327680",
+      "inflation": "18154/16679"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 6,
+      "L": 1,
+      "states": 64,
+      "mean": "59/1280",
+      "variance": "36519/1638400",
+      "covariance": "-69/327680",
+      "inflation": "11598/12173"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 6,
+      "L": 2,
+      "states": 64,
+      "mean": "-379/5120",
+      "variance": "19239/26214400",
+      "covariance": "571/5242880",
+      "inflation": "33514/19239"
+    },
+    {
+      "law": "negative_covariance",
+      "n": 6,
+      "L": 4,
+      "states": 64,
+      "mean": "379/20480",
+      "variance": "19239/419430400",
+      "covariance": "571/83886080",
+      "inflation": "33514/19239"
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 2,
+      "L": 0,
+      "states": 4,
+      "mean": "0",
+      "variance": "1/16",
+      "covariance": "0",
+      "inflation": "1"
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 2,
+      "L": 1,
+      "states": 4,
+      "mean": "-1/16",
+      "variance": "11/256",
+      "covariance": "-5/256",
+      "inflation": "6/11"
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 2,
+      "L": 2,
+      "states": 4,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 2,
+      "L": 4,
+      "states": 4,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 3,
+      "L": 0,
+      "states": 8,
+      "mean": "0",
+      "variance": "1/16",
+      "covariance": "0",
+      "inflation": "1"
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 3,
+      "L": 1,
+      "states": 8,
+      "mean": "-1/32",
+      "variance": "55/1024",
+      "covariance": "-9/1024",
+      "inflation": "37/55"
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 3,
+      "L": 2,
+      "states": 8,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 3,
+      "L": 4,
+      "states": 8,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 4,
+      "L": 0,
+      "states": 16,
+      "mean": "0",
+      "variance": "1/16",
+      "covariance": "0",
+      "inflation": "1"
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 4,
+      "L": 1,
+      "states": 16,
+      "mean": "-1/64",
+      "variance": "239/4096",
+      "covariance": "-17/4096",
+      "inflation": "188/239"
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 4,
+      "L": 2,
+      "states": 16,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 4,
+      "L": 4,
+      "states": 16,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 6,
+      "L": 0,
+      "states": 64,
+      "mean": "0",
+      "variance": "1/16",
+      "covariance": "0",
+      "inflation": "1"
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 6,
+      "L": 1,
+      "states": 64,
+      "mean": "-1/256",
+      "variance": "4031/65536",
+      "covariance": "-65/65536",
+      "inflation": "3706/4031"
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 6,
+      "L": 2,
+      "states": 64,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "two_atom_asymmetric",
+      "n": 6,
+      "L": 4,
+      "states": 64,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 2,
+      "L": 0,
+      "states": 16,
+      "mean": "-1/8",
+      "variance": "5/64",
+      "covariance": "-1/64",
+      "inflation": "4/5"
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 2,
+      "L": 1,
+      "states": 16,
+      "mean": "-1/32",
+      "variance": "15/1024",
+      "covariance": "-1/1024",
+      "inflation": "14/15"
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 2,
+      "L": 2,
+      "states": 16,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 2,
+      "L": 4,
+      "states": 16,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 3,
+      "L": 0,
+      "states": 64,
+      "mean": "-13/64",
+      "variance": "471/4096",
+      "covariance": "-9/4096",
+      "inflation": "151/157"
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 3,
+      "L": 1,
+      "states": 64,
+      "mean": "-7/128",
+      "variance": "399/16384",
+      "covariance": "15/16384",
+      "inflation": "143/133"
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 3,
+      "L": 2,
+      "states": 64,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 3,
+      "L": 4,
+      "states": 64,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 4,
+      "L": 0,
+      "states": 256,
+      "mean": "-65/256",
+      "variance": "8831/65536",
+      "covariance": "127/65536",
+      "inflation": "9212/8831"
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 4,
+      "L": 1,
+      "states": 256,
+      "mean": "-37/512",
+      "variance": "8103/262144",
+      "covariance": "423/262144",
+      "inflation": "3124/2701"
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 4,
+      "L": 2,
+      "states": 256,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 4,
+      "L": 4,
+      "states": 256,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 6,
+      "L": 0,
+      "states": 4096,
+      "mean": "-1277/4096",
+      "variance": "2584055/16777216",
+      "covariance": "48631/16777216",
+      "inflation": "565442/516811"
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 6,
+      "L": 1,
+      "states": 4096,
+      "mean": "-781/8192",
+      "variance": "2589015/67108864",
+      "covariance": "106839/67108864",
+      "inflation": "208214/172601"
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 6,
+      "L": 2,
+      "states": 4096,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "zero_and_dyadic_endpoints",
+      "n": 6,
+      "L": 4,
+      "states": 4096,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 2,
+      "L": 0,
+      "states": 9,
+      "mean": "0",
+      "variance": "1/32",
+      "covariance": "0",
+      "inflation": "1"
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 2,
+      "L": 1,
+      "states": 9,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 2,
+      "L": 2,
+      "states": 9,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 2,
+      "L": 4,
+      "states": 9,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 3,
+      "L": 0,
+      "states": 27,
+      "mean": "0",
+      "variance": "1/32",
+      "covariance": "0",
+      "inflation": "1"
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 3,
+      "L": 1,
+      "states": 27,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 3,
+      "L": 2,
+      "states": 27,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 3,
+      "L": 4,
+      "states": 27,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 4,
+      "L": 0,
+      "states": 81,
+      "mean": "0",
+      "variance": "1/32",
+      "covariance": "0",
+      "inflation": "1"
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 4,
+      "L": 1,
+      "states": 81,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 4,
+      "L": 2,
+      "states": 81,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 4,
+      "L": 4,
+      "states": 81,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 6,
+      "L": 0,
+      "states": 729,
+      "mean": "0",
+      "variance": "1/32",
+      "covariance": "0",
+      "inflation": "1"
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 6,
+      "L": 1,
+      "states": 729,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 6,
+      "L": 2,
+      "states": 729,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "symmetric_ties",
+      "n": 6,
+      "L": 4,
+      "states": 729,
+      "mean": "0",
+      "variance": "0",
+      "covariance": "0",
+      "inflation": null
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 2,
+      "L": 0,
+      "states": 9,
+      "mean": "-5/48",
+      "variance": "25/768",
+      "covariance": "11/6400",
+      "inflation": "658/625"
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 2,
+      "L": 1,
+      "states": 9,
+      "mean": "-7/96",
+      "variance": "49/3072",
+      "covariance": "-29/25600",
+      "inflation": "1138/1225"
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 2,
+      "L": 2,
+      "states": 9,
+      "mean": "7/192",
+      "variance": "49/12288",
+      "covariance": "-29/102400",
+      "inflation": "1138/1225"
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 2,
+      "L": 4,
+      "states": 9,
+      "mean": "7/768",
+      "variance": "49/196608",
+      "covariance": "-29/1638400",
+      "inflation": "1138/1225"
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 3,
+      "L": 0,
+      "states": 27,
+      "mean": "-53/480",
+      "variance": "3397/76800",
+      "covariance": "23/25600",
+      "inflation": "3535/3397"
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 3,
+      "L": 1,
+      "states": 27,
+      "mean": "-67/960",
+      "variance": "6037/307200",
+      "covariance": "-57/102400",
+      "inflation": "5695/6037"
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 3,
+      "L": 2,
+      "states": 27,
+      "mean": "67/1920",
+      "variance": "6037/1228800",
+      "covariance": "-57/409600",
+      "inflation": "5695/6037"
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 3,
+      "L": 4,
+      "states": 27,
+      "mean": "67/7680",
+      "variance": "6037/19660800",
+      "covariance": "-57/6553600",
+      "inflation": "5695/6037"
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 4,
+      "L": 0,
+      "states": 81,
+      "mean": "-109/960",
+      "variance": "15373/307200",
+      "covariance": "47/102400",
+      "inflation": "15796/15373"
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 4,
+      "L": 1,
+      "states": 81,
+      "mean": "-131/1920",
+      "variance": "26413/1228800",
+      "covariance": "-113/409600",
+      "inflation": "25396/26413"
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 4,
+      "L": 2,
+      "states": 81,
+      "mean": "131/3840",
+      "variance": "26413/4915200",
+      "covariance": "-113/1638400",
+      "inflation": "25396/26413"
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 4,
+      "L": 4,
+      "states": 81,
+      "mean": "131/15360",
+      "variance": "26413/78643200",
+      "covariance": "-113/26214400",
+      "inflation": "25396/26413"
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 6,
+      "L": 0,
+      "states": 729,
+      "mean": "-89/768",
+      "variance": "10693/196608",
+      "covariance": "191/1638400",
+      "inflation": "54038/53465"
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 6,
+      "L": 1,
+      "states": 729,
+      "mean": "-103/1536",
+      "variance": "17989/786432",
+      "covariance": "-449/6553600",
+      "inflation": "88598/89945"
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 6,
+      "L": 2,
+      "states": 729,
+      "mean": "103/3072",
+      "variance": "17989/3145728",
+      "covariance": "-449/26214400",
+      "inflation": "88598/89945"
+    },
+    {
+      "law": "unequal_atom_weights",
+      "n": 6,
+      "L": 4,
+      "states": 729,
+      "mean": "103/12288",
+      "variance": "17989/50331648",
+      "covariance": "-449/419430400",
+      "inflation": "88598/89945"
+    }
+  ]
+}

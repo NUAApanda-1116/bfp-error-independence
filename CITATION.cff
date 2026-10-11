@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper it accompanies."
+title: "Reproduction code for: Exact Error Covariances for Block Floating Point Reductions"
+abstract: >-
+  Exact finite-block quantization moments, maximum-selection covariance,
+  weighted reduction and discrete elliptic error propagation, an
+  exponential-input asymptotic counterexample, and independently verified
+  reproduction data.
+type: software
+authors:
+  - family-names: Xiong
+    given-names: Yongkang
+    email: nuaapanda@outlook.com
+    affiliation: "Nanjing University of Aeronautics and Astronautics"
+license: MIT
+version: "2.1.0"
+date-released: "2026-10-11"
+preferred-citation:
+  type: article
+  title: >-
+    Exact Error Covariances for Block Floating Point Reductions
+  authors:
+    - family-names: Xiong
+      given-names: Yongkang
+  year: 2026

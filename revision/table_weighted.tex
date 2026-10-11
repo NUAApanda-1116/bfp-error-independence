@@ -1,0 +1,12 @@
+% Generated from experiments/tables.tex
+\begin{table}[t]
+\centering\footnotesize
+\caption{Weighted dot-product quantization MSE divided by $\sum_iw_i^2$, lognormal inputs, $n=128$, $L=2$, 50,000 blocks. Brackets are 95\% intervals. The weights are fixed before sampling. Balanced: alternating $1,-1$; near cancellation: alternating $1,-0.9$; positive: all ones.}\label{tab:revision-weighted}
+\begin{tabular}{@{}lrrr@{}}\toprule
+Method & Balanced & Near cancellation & Positive\\\midrule
+Shared RNE & 0.509 [0.500, 0.517] & 0.545 [0.535, 0.555] & 12.58 [12.40, 12.80]\\
+Split blocks of 16 & 0.165 [0.162, 0.167] & 0.166 [0.164, 0.168] & 0.816 [0.805, 0.827]\\
+Independent scales & 0.020 [0.020, 0.021] & 0.020 [0.020, 0.021] & 0.023 [0.023, 0.024]\\
+Shared SR & 1.375 [1.345, 1.407] & 1.374 [1.348, 1.404] & 1.380 [1.350, 1.413]\\
+\bottomrule\end{tabular}
+\end{table}

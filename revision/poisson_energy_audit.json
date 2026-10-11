@@ -1,0 +1,730 @@
+{
+  "status": "PASS",
+  "exact_arithmetic": "fractions.Fraction",
+  "configurations": 13,
+  "enumerated_rhs": 872,
+  "source_sha256": "d4d83336bddec1b36a4c57f806dabad0f8f6ef5c3f3d2028dc33873a11356a65",
+  "independence": "No imports from the prediction or experiment implementations",
+  "direct_energy_method": "Exact Green solve, then squared first differences with zero boundary values",
+  "moment_method": "Independent complete block enumeration; no truncated-integral formula",
+  "checks": [
+    "A G = I and Green trace/constant-direction identities",
+    "Complete joint quantization-energy enumeration versus block-moment propagation",
+    "Complete error covariance matrix, including zero off-block covariances",
+    "Variable block precision and nonidentical block biases",
+    "Contiguous and interleaved spatial support",
+    "Unequal block sizes, both covariance signs, zeros, ties and dyadic endpoints",
+    "Reference expected energy and relative RMS squared"
+  ],
+  "laws": {
+    "deflation": [
+      [
+        "13/10",
+        "1/2"
+      ],
+      [
+        "41/20",
+        "1/2"
+      ]
+    ],
+    "common_error": [
+      [
+        "6/5",
+        "1/2"
+      ],
+      [
+        "11/5",
+        "1/2"
+      ]
+    ],
+    "zero_ties": [
+      [
+        "0",
+        "1/4"
+      ],
+      [
+        "1/8",
+        "1/4"
+      ],
+      [
+        "9/4",
+        "1/2"
+      ]
+    ],
+    "symmetric": [
+      [
+        "-7/8",
+        "1/4"
+      ],
+      [
+        "0",
+        "1/2"
+      ],
+      [
+        "7/8",
+        "1/4"
+      ]
+    ],
+    "endpoints": [
+      [
+        "1",
+        "1/4"
+      ],
+      [
+        "3/2",
+        "1/4"
+      ],
+      [
+        "2",
+        "1/4"
+      ],
+      [
+        "5/2",
+        "1/4"
+      ]
+    ]
+  },
+  "results": [
+    {
+      "name": "single_block",
+      "blocks": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "laws": [
+        "deflation"
+      ],
+      "levels": [
+        2
+      ],
+      "layout": "single",
+      "n": 4,
+      "enumerated_rhs": 16,
+      "status": "PASS",
+      "block_moments": [
+        {
+          "mean": "19/320",
+          "variance": "63/4096",
+          "covariance": "-1/4096"
+        }
+      ],
+      "direct_energy_mse": "61/80000",
+      "predicted_energy_mse": "61/80000",
+      "centered_energy": "123/256000",
+      "coherent_squared_bias_energy": "361/1280000",
+      "cross_block_squared_bias_energy": "0",
+      "reference_expected_energy": "4579/20000",
+      "relative_rms_squared": "61/18316",
+      "energy_difference": "0",
+      "reference_difference": "0",
+      "covariance_difference": "0",
+      "tie_encounters": 0,
+      "zero_block_encounters": 0
+    },
+    {
+      "name": "equal_contiguous",
+      "blocks": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "laws": [
+        "deflation",
+        "deflation"
+      ],
+      "levels": [
+        2,
+        2
+      ],
+      "layout": "contiguous",
+      "n": 4,
+      "enumerated_rhs": 16,
+      "status": "PASS",
+      "block_moments": [
+        {
+          "mean": "1/80",
+          "variance": "3/256",
+          "covariance": "-1/256"
+        },
+        {
+          "mean": "1/80",
+          "variance": "3/256",
+          "covariance": "-1/256"
+        }
+      ],
+      "direct_energy_mse": "1/3200",
+      "predicted_energy_mse": "1/3200",
+      "centered_energy": "3/10000",
+      "coherent_squared_bias_energy": "1/80000",
+      "cross_block_squared_bias_energy": "9/2000000",
+      "reference_expected_energy": "4579/20000",
+      "relative_rms_squared": "25/18316",
+      "energy_difference": "0",
+      "reference_difference": "0",
+      "covariance_difference": "0",
+      "tie_encounters": 0,
+      "zero_block_encounters": 0
+    },
+    {
+      "name": "equal_interleaved",
+      "blocks": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "laws": [
+        "deflation",
+        "deflation"
+      ],
+      "levels": [
+        2,
+        2
+      ],
+      "layout": "interleaved",
+      "n": 4,
+      "enumerated_rhs": 16,
+      "status": "PASS",
+      "block_moments": [
+        {
+          "mean": "1/80",
+          "variance": "3/256",
+          "covariance": "-1/256"
+        },
+        {
+          "mean": "1/80",
+          "variance": "3/256",
+          "covariance": "-1/256"
+        }
+      ],
+      "direct_energy_mse": "27/80000",
+      "predicted_energy_mse": "27/80000",
+      "centered_energy": "13/40000",
+      "coherent_squared_bias_energy": "1/80000",
+      "cross_block_squared_bias_energy": "11/2000000",
+      "reference_expected_energy": "4579/20000",
+      "relative_rms_squared": "27/18316",
+      "energy_difference": "0",
+      "reference_difference": "0",
+      "covariance_difference": "0",
+      "tie_encounters": 0,
+      "zero_block_encounters": 0
+    },
+    {
+      "name": "variable_precision_contiguous",
+      "blocks": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "laws": [
+        "deflation",
+        "deflation"
+      ],
+      "levels": [
+        1,
+        2
+      ],
+      "layout": "contiguous",
+      "n": 4,
+      "enumerated_rhs": 16,
+      "status": "PASS",
+      "block_moments": [
+        {
+          "mean": "-1/20",
+          "variance": "1/32",
+          "covariance": "1/64"
+        },
+        {
+          "mean": "1/80",
+          "variance": "3/256",
+          "covariance": "-1/256"
+        }
+      ],
+      "direct_energy_mse": "17/20000",
+      "predicted_energy_mse": "17/20000",
+      "centered_energy": "1/1250",
+      "coherent_squared_bias_energy": "1/20000",
+      "cross_block_squared_bias_energy": "-9/500000",
+      "reference_expected_energy": "4579/20000",
+      "relative_rms_squared": "17/4579",
+      "energy_difference": "0",
+      "reference_difference": "0",
+      "covariance_difference": "0",
+      "tie_encounters": 0,
+      "zero_block_encounters": 0
+    },
+    {
+      "name": "variable_precision_interleaved",
+      "blocks": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "laws": [
+        "deflation",
+        "deflation"
+      ],
+      "levels": [
+        1,
+        2
+      ],
+      "layout": "interleaved",
+      "n": 4,
+      "enumerated_rhs": 16,
+      "status": "PASS",
+      "block_moments": [
+        {
+          "mean": "-1/20",
+          "variance": "1/32",
+          "covariance": "1/64"
+        },
+        {
+          "mean": "1/80",
+          "variance": "3/256",
+          "covariance": "-1/256"
+        }
+      ],
+      "direct_energy_mse": "1/1250",
+      "predicted_energy_mse": "1/1250",
+      "centered_energy": "61/80000",
+      "coherent_squared_bias_energy": "3/80000",
+      "cross_block_squared_bias_energy": "-11/500000",
+      "reference_expected_energy": "4579/20000",
+      "relative_rms_squared": "16/4579",
+      "energy_difference": "0",
+      "reference_difference": "0",
+      "covariance_difference": "0",
+      "tie_encounters": 0,
+      "zero_block_encounters": 0
+    },
+    {
+      "name": "different_laws_contiguous",
+      "blocks": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "laws": [
+        "deflation",
+        "common_error"
+      ],
+      "levels": [
+        2,
+        2
+      ],
+      "layout": "contiguous",
+      "n": 4,
+      "enumerated_rhs": 16,
+      "status": "PASS",
+      "block_moments": [
+        {
+          "mean": "1/80",
+          "variance": "3/256",
+          "covariance": "-1/256"
+        },
+        {
+          "mean": "-11/80",
+          "variance": "3/256",
+          "covariance": "3/256"
+        }
+      ],
+      "direct_energy_mse": "1777/2000000",
+      "predicted_energy_mse": "1777/2000000",
+      "centered_energy": "9/20000",
+      "coherent_squared_bias_energy": "877/2000000",
+      "cross_block_squared_bias_energy": "-99/2000000",
+      "reference_expected_energy": "117033/500000",
+      "relative_rms_squared": "1777/468132",
+      "energy_difference": "0",
+      "reference_difference": "0",
+      "covariance_difference": "0",
+      "tie_encounters": 0,
+      "zero_block_encounters": 0
+    },
+    {
+      "name": "different_laws_interleaved",
+      "blocks": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "laws": [
+        "deflation",
+        "common_error"
+      ],
+      "levels": [
+        2,
+        2
+      ],
+      "layout": "interleaved",
+      "n": 4,
+      "enumerated_rhs": 16,
+      "status": "PASS",
+      "block_moments": [
+        {
+          "mean": "1/80",
+          "variance": "3/256",
+          "covariance": "-1/256"
+        },
+        {
+          "mean": "-11/80",
+          "variance": "3/256",
+          "covariance": "3/256"
+        }
+      ],
+      "direct_energy_mse": "1583/2000000",
+      "predicted_energy_mse": "1583/2000000",
+      "centered_energy": "17/40000",
+      "coherent_squared_bias_energy": "733/2000000",
+      "cross_block_squared_bias_energy": "-121/2000000",
+      "reference_expected_energy": "14629/62500",
+      "relative_rms_squared": "1583/468128",
+      "energy_difference": "0",
+      "reference_difference": "0",
+      "covariance_difference": "0",
+      "tie_encounters": 0,
+      "zero_block_encounters": 0
+    },
+    {
+      "name": "three_laws_contiguous",
+      "blocks": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "laws": [
+        "deflation",
+        "common_error",
+        "zero_ties"
+      ],
+      "levels": [
+        2,
+        2,
+        0
+      ],
+      "layout": "contiguous",
+      "n": 6,
+      "enumerated_rhs": 144,
+      "status": "PASS",
+      "block_moments": [
+        {
+          "mean": "1/80",
+          "variance": "3/256",
+          "covariance": "-1/256"
+        },
+        {
+          "mean": "-11/80",
+          "variance": "3/256",
+          "covariance": "3/256"
+        },
+        {
+          "mean": "-9/64",
+          "variance": "55/4096",
+          "covariance": "15/4096"
+        }
+      ],
+      "direct_energy_mse": "2663/2195200",
+      "predicted_energy_mse": "2663/2195200",
+      "centered_energy": "261/702464",
+      "coherent_squared_bias_energy": "14779/17561600",
+      "cross_block_squared_bias_energy": "4533/15366400",
+      "reference_expected_energy": "6317057/30732800",
+      "relative_rms_squared": "37282/6317057",
+      "energy_difference": "0",
+      "reference_difference": "0",
+      "covariance_difference": "0",
+      "tie_encounters": 0,
+      "zero_block_encounters": 16
+    },
+    {
+      "name": "three_laws_interleaved",
+      "blocks": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "laws": [
+        "deflation",
+        "common_error",
+        "zero_ties"
+      ],
+      "levels": [
+        2,
+        2,
+        0
+      ],
+      "layout": "interleaved",
+      "n": 6,
+      "enumerated_rhs": 144,
+      "status": "PASS",
+      "block_moments": [
+        {
+          "mean": "1/80",
+          "variance": "3/256",
+          "covariance": "-1/256"
+        },
+        {
+          "mean": "-11/80",
+          "variance": "3/256",
+          "covariance": "3/256"
+        },
+        {
+          "mean": "-9/64",
+          "variance": "55/4096",
+          "covariance": "15/4096"
+        }
+      ],
+      "direct_energy_mse": "901/878080",
+      "predicted_energy_mse": "901/878080",
+      "centered_energy": "57/175616",
+      "coherent_squared_bias_energy": "11/15680",
+      "cross_block_squared_bias_energy": "8661/30732800",
+      "reference_expected_energy": "1232163/6146560",
+      "relative_rms_squared": "6307/1232163",
+      "energy_difference": "0",
+      "reference_difference": "0",
+      "covariance_difference": "0",
+      "tie_encounters": 0,
+      "zero_block_encounters": 16
+    },
+    {
+      "name": "unequal_sizes",
+      "blocks": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "laws": [
+        "deflation",
+        "zero_ties"
+      ],
+      "levels": [
+        2,
+        1
+      ],
+      "layout": "contiguous",
+      "n": 5,
+      "enumerated_rhs": 108,
+      "status": "PASS",
+      "block_moments": [
+        {
+          "mean": "1/80",
+          "variance": "3/256",
+          "covariance": "-1/256"
+        },
+        {
+          "mean": "-19/128",
+          "variance": "199/16384",
+          "covariance": "31/16384"
+        }
+      ],
+      "direct_energy_mse": "36649/33177600",
+      "predicted_energy_mse": "36649/33177600",
+      "centered_energy": "7/20736",
+      "coherent_squared_bias_energy": "8483/11059200",
+      "cross_block_squared_bias_energy": "-19/368640",
+      "reference_expected_energy": "104771/614400",
+      "relative_rms_squared": "36649/5657634",
+      "energy_difference": "0",
+      "reference_difference": "0",
+      "covariance_difference": "0",
+      "tie_encounters": 0,
+      "zero_block_encounters": 4
+    },
+    {
+      "name": "symmetry_variable_precision",
+      "blocks": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "laws": [
+        "symmetric",
+        "symmetric"
+      ],
+      "levels": [
+        0,
+        2
+      ],
+      "layout": "interleaved",
+      "n": 4,
+      "enumerated_rhs": 81,
+      "status": "PASS",
+      "block_moments": [
+        {
+          "mean": "0",
+          "variance": "1/128",
+          "covariance": "0"
+        },
+        {
+          "mean": "0",
+          "variance": "0",
+          "covariance": "0"
+        }
+      ],
+      "direct_energy_mse": "1/8000",
+      "predicted_energy_mse": "1/8000",
+      "centered_energy": "1/8000",
+      "coherent_squared_bias_energy": "0",
+      "cross_block_squared_bias_energy": "0",
+      "reference_expected_energy": "49/4000",
+      "relative_rms_squared": "1/98",
+      "energy_difference": "0",
+      "reference_difference": "0",
+      "covariance_difference": "0",
+      "tie_encounters": 0,
+      "zero_block_encounters": 18
+    },
+    {
+      "name": "dyadic_endpoints_ties",
+      "blocks": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "laws": [
+        "endpoints",
+        "endpoints"
+      ],
+      "levels": [
+        0,
+        1
+      ],
+      "layout": "contiguous",
+      "n": 4,
+      "enumerated_rhs": 256,
+      "status": "PASS",
+      "block_moments": [
+        {
+          "mean": "-1/8",
+          "variance": "15/64",
+          "covariance": "3/64"
+        },
+        {
+          "mean": "-1/16",
+          "variance": "23/256",
+          "covariance": "-5/256"
+        }
+      ],
+      "direct_energy_mse": "247/40000",
+      "predicted_energy_mse": "247/40000",
+      "centered_energy": "109/20000",
+      "coherent_squared_bias_energy": "29/40000",
+      "cross_block_squared_bias_energy": "9/40000",
+      "reference_expected_energy": "51/200",
+      "relative_rms_squared": "247/10200",
+      "energy_difference": "0",
+      "reference_difference": "0",
+      "covariance_difference": "0",
+      "tie_encounters": 320,
+      "zero_block_encounters": 0
+    },
+    {
+      "name": "zero_state",
+      "blocks": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "laws": [
+        "zero_ties"
+      ],
+      "levels": [
+        2
+      ],
+      "layout": "single",
+      "n": 3,
+      "enumerated_rhs": 27,
+      "status": "PASS",
+      "block_moments": [
+        {
+          "mean": "-19/128",
+          "variance": "199/16384",
+          "covariance": "31/16384"
+        }
+      ],
+      "direct_energy_mse": "595/262144",
+      "predicted_energy_mse": "595/262144",
+      "centered_energy": "575/1048576",
+      "coherent_squared_bias_energy": "1805/1048576",
+      "cross_block_squared_bias_energy": "0",
+      "reference_expected_energy": "19825/131072",
+      "relative_rms_squared": "119/7930",
+      "energy_difference": "0",
+      "reference_difference": "0",
+      "covariance_difference": "0",
+      "tie_encounters": 27,
+      "zero_block_encounters": 1
+    }
+  ]
+}

@@ -1,0 +1,591 @@
+{
+  "passed": 32,
+  "enumerated_blocks": 480,
+  "exact_arithmetic": "fractions.Fraction",
+  "records": [
+    {
+      "profile": "same_side_different_probabilities",
+      "n": 2,
+      "L": 0,
+      "enumerated_blocks": 4,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        -1,
+        0
+      ],
+      "positive_example": null,
+      "negative_example": {
+        "k": 1,
+        "pair": [
+          0,
+          1
+        ],
+        "conditional_covariance": "-9/200"
+      },
+      "weighted_mse": "4871/15000"
+    },
+    {
+      "profile": "same_side_different_probabilities",
+      "n": 2,
+      "L": 1,
+      "enumerated_blocks": 4,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        -1,
+        0
+      ],
+      "positive_example": null,
+      "negative_example": {
+        "k": 1,
+        "pair": [
+          0,
+          1
+        ],
+        "conditional_covariance": "-1/200"
+      },
+      "weighted_mse": "611/15000"
+    },
+    {
+      "profile": "same_side_different_probabilities",
+      "n": 2,
+      "L": 2,
+      "enumerated_blocks": 4,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        -1,
+        0
+      ],
+      "positive_example": null,
+      "negative_example": {
+        "k": 1,
+        "pair": [
+          0,
+          1
+        ],
+        "conditional_covariance": "-1/200"
+      },
+      "weighted_mse": "43/1250"
+    },
+    {
+      "profile": "same_side_different_probabilities",
+      "n": 2,
+      "L": 4,
+      "enumerated_blocks": 4,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "27/80000"
+    },
+    {
+      "profile": "same_side_different_probabilities",
+      "n": 3,
+      "L": 0,
+      "enumerated_blocks": 8,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        -1,
+        0
+      ],
+      "positive_example": null,
+      "negative_example": {
+        "k": 1,
+        "pair": [
+          0,
+          1
+        ],
+        "conditional_covariance": "-9/1058"
+      },
+      "weighted_mse": "1027/1875"
+    },
+    {
+      "profile": "same_side_different_probabilities",
+      "n": 3,
+      "L": 1,
+      "enumerated_blocks": 8,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        -1,
+        0
+      ],
+      "positive_example": null,
+      "negative_example": {
+        "k": 1,
+        "pair": [
+          0,
+          1
+        ],
+        "conditional_covariance": "-1/1058"
+      },
+      "weighted_mse": "187/1875"
+    },
+    {
+      "profile": "same_side_different_probabilities",
+      "n": 3,
+      "L": 2,
+      "enumerated_blocks": 8,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        -1,
+        0
+      ],
+      "positive_example": null,
+      "negative_example": {
+        "k": 1,
+        "pair": [
+          0,
+          1
+        ],
+        "conditional_covariance": "-1/1058"
+      },
+      "weighted_mse": "63/1250"
+    },
+    {
+      "profile": "same_side_different_probabilities",
+      "n": 3,
+      "L": 4,
+      "enumerated_blocks": 8,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "123/20000"
+    },
+    {
+      "profile": "opposite_sides",
+      "n": 2,
+      "L": 0,
+      "enumerated_blocks": 4,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        0,
+        1
+      ],
+      "positive_example": {
+        "k": 1,
+        "pair": [
+          0,
+          1
+        ],
+        "conditional_covariance": "9/200"
+      },
+      "negative_example": null,
+      "weighted_mse": "191/600"
+    },
+    {
+      "profile": "opposite_sides",
+      "n": 2,
+      "L": 1,
+      "enumerated_blocks": 4,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        0,
+        1
+      ],
+      "positive_example": {
+        "k": 1,
+        "pair": [
+          0,
+          1
+        ],
+        "conditional_covariance": "1/200"
+      },
+      "negative_example": null,
+      "weighted_mse": "59/600"
+    },
+    {
+      "profile": "opposite_sides",
+      "n": 2,
+      "L": 2,
+      "enumerated_blocks": 4,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        0,
+        1
+      ],
+      "positive_example": {
+        "k": 1,
+        "pair": [
+          0,
+          1
+        ],
+        "conditional_covariance": "1/200"
+      },
+      "negative_example": null,
+      "weighted_mse": "1/50"
+    },
+    {
+      "profile": "opposite_sides",
+      "n": 2,
+      "L": 4,
+      "enumerated_blocks": 4,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "27/3200"
+    },
+    {
+      "profile": "opposite_sides",
+      "n": 3,
+      "L": 0,
+      "enumerated_blocks": 8,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        -1,
+        0,
+        1
+      ],
+      "positive_example": {
+        "k": 1,
+        "pair": [
+          0,
+          1
+        ],
+        "conditional_covariance": "9/1058"
+      },
+      "negative_example": {
+        "k": 1,
+        "pair": [
+          0,
+          2
+        ],
+        "conditional_covariance": "-81/8464"
+      },
+      "weighted_mse": "1453/1875"
+    },
+    {
+      "profile": "opposite_sides",
+      "n": 3,
+      "L": 1,
+      "enumerated_blocks": 8,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        -1,
+        0,
+        1
+      ],
+      "positive_example": {
+        "k": 1,
+        "pair": [
+          0,
+          1
+        ],
+        "conditional_covariance": "1/1058"
+      },
+      "negative_example": {
+        "k": 1,
+        "pair": [
+          0,
+          2
+        ],
+        "conditional_covariance": "-9/8464"
+      },
+      "weighted_mse": "433/1875"
+    },
+    {
+      "profile": "opposite_sides",
+      "n": 3,
+      "L": 2,
+      "enumerated_blocks": 8,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        -1,
+        0,
+        1
+      ],
+      "positive_example": {
+        "k": 1,
+        "pair": [
+          0,
+          1
+        ],
+        "conditional_covariance": "1/1058"
+      },
+      "negative_example": {
+        "k": 1,
+        "pair": [
+          0,
+          2
+        ],
+        "conditional_covariance": "-9/8464"
+      },
+      "weighted_mse": "31/625"
+    },
+    {
+      "profile": "opposite_sides",
+      "n": 3,
+      "L": 4,
+      "enumerated_blocks": 8,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "123/5000"
+    },
+    {
+      "profile": "zero_endpoints_and_ties",
+      "n": 2,
+      "L": 0,
+      "enumerated_blocks": 12,
+      "all_zero_state_included": true,
+      "zero_lower_states": 0,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "3/50"
+    },
+    {
+      "profile": "zero_endpoints_and_ties",
+      "n": 2,
+      "L": 1,
+      "enumerated_blocks": 12,
+      "all_zero_state_included": true,
+      "zero_lower_states": 0,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "1/100"
+    },
+    {
+      "profile": "zero_endpoints_and_ties",
+      "n": 2,
+      "L": 2,
+      "enumerated_blocks": 12,
+      "all_zero_state_included": true,
+      "zero_lower_states": 0,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "1/200"
+    },
+    {
+      "profile": "zero_endpoints_and_ties",
+      "n": 2,
+      "L": 4,
+      "enumerated_blocks": 12,
+      "all_zero_state_included": true,
+      "zero_lower_states": 0,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "0"
+    },
+    {
+      "profile": "zero_endpoints_and_ties",
+      "n": 3,
+      "L": 0,
+      "enumerated_blocks": 36,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        0,
+        1
+      ],
+      "positive_example": {
+        "k": 0,
+        "pair": [
+          0,
+          2
+        ],
+        "conditional_covariance": "1/320"
+      },
+      "negative_example": null,
+      "weighted_mse": "517/1600"
+    },
+    {
+      "profile": "zero_endpoints_and_ties",
+      "n": 3,
+      "L": 1,
+      "enumerated_blocks": 36,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "397/6400"
+    },
+    {
+      "profile": "zero_endpoints_and_ties",
+      "n": 3,
+      "L": 2,
+      "enumerated_blocks": 36,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "21/1024"
+    },
+    {
+      "profile": "zero_endpoints_and_ties",
+      "n": 3,
+      "L": 4,
+      "enumerated_blocks": 36,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "397/409600"
+    },
+    {
+      "profile": "different_support_and_zero_lower_event",
+      "n": 2,
+      "L": 0,
+      "enumerated_blocks": 12,
+      "all_zero_state_included": true,
+      "zero_lower_states": 0,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "209/200"
+    },
+    {
+      "profile": "different_support_and_zero_lower_event",
+      "n": 2,
+      "L": 1,
+      "enumerated_blocks": 12,
+      "all_zero_state_included": true,
+      "zero_lower_states": 0,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "9/40"
+    },
+    {
+      "profile": "different_support_and_zero_lower_event",
+      "n": 2,
+      "L": 2,
+      "enumerated_blocks": 12,
+      "all_zero_state_included": true,
+      "zero_lower_states": 0,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "9/200"
+    },
+    {
+      "profile": "different_support_and_zero_lower_event",
+      "n": 2,
+      "L": 4,
+      "enumerated_blocks": 12,
+      "all_zero_state_included": true,
+      "zero_lower_states": 0,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "0"
+    },
+    {
+      "profile": "different_support_and_zero_lower_event",
+      "n": 3,
+      "L": 0,
+      "enumerated_blocks": 36,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        0,
+        1
+      ],
+      "positive_example": {
+        "k": 0,
+        "pair": [
+          0,
+          2
+        ],
+        "conditional_covariance": "1/3136"
+      },
+      "negative_example": null,
+      "weighted_mse": "102261/40000"
+    },
+    {
+      "profile": "different_support_and_zero_lower_event",
+      "n": 3,
+      "L": 1,
+      "enumerated_blocks": 36,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "10709/32000"
+    },
+    {
+      "profile": "different_support_and_zero_lower_event",
+      "n": 3,
+      "L": 2,
+      "enumerated_blocks": 36,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "15941/128000"
+    },
+    {
+      "profile": "different_support_and_zero_lower_event",
+      "n": 3,
+      "L": 4,
+      "enumerated_blocks": 36,
+      "all_zero_state_included": false,
+      "zero_lower_states": 1,
+      "conditional_covariance_signs": [
+        0
+      ],
+      "positive_example": null,
+      "negative_example": null,
+      "weighted_mse": "11333/2048000"
+    }
+  ]
+}

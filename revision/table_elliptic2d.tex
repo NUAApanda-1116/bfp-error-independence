@@ -1,0 +1,28 @@
+\begin{table}[tb]
+\centering
+\caption{Two-dimensional heterogeneous source compression, $32^2$ unknowns,
+contiguous blocks, and exactly $7168$ payload bits. Source and Energy allocate
+the extra coefficient bits by source scale and the full energy prediction,
+respectively. Relative energy RMS values are percentages. Ind. retains exact
+marginal moments and bias; Unif. uses independent uniform-cell noise.}
+\label{tab:revision-elliptic2d}
+\begingroup\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrlrrrr}
+\toprule
+Profile & $|B|$ & Placement & Exact & Ind. & Unif. & MC $95\%$ interval\\
+\midrule
+Smooth & 8 & Uniform & 1.244 & 1.206 & 1.141 & [1.242,1.248] \\
+Smooth & 32 & Uniform & 1.450 & 1.363 & 1.252 & [1.447,1.457] \\
+Smooth & 32 & Source & 1.125 & 1.079 & 1.023 & [1.124,1.132] \\
+Smooth & 32 & Energy & 1.125 & 1.079 & 1.023 & [1.124,1.131] \\
+Smooth & 128 & Uniform & 3.071 & 2.541 & 1.962 & [3.058,3.108] \\
+Smooth & 128 & Energy & 2.132 & 1.820 & 1.557 & [2.124,2.159] \\
+Hotspot & 8 & Uniform & 1.471 & 1.423 & 1.358 & [1.468,1.481] \\
+Hotspot & 32 & Uniform & 1.997 & 1.866 & 1.583 & [2.000,2.016] \\
+Hotspot & 32 & Source & 1.543 & 1.451 & 1.282 & [1.544,1.556] \\
+Hotspot & 32 & Energy & 1.529 & 1.439 & 1.278 & [1.530,1.542] \\
+Hotspot & 128 & Uniform & 4.184 & 3.563 & 2.361 & [4.182,4.233] \\
+Hotspot & 128 & Energy & 3.216 & 2.726 & 2.012 & [3.224,3.262] \\
+\bottomrule
+\end{tabular}\endgroup
+\end{table}

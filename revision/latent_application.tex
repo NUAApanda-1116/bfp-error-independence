@@ -1,0 +1,51 @@
+\subsection{A correlated source field}\label{sec:revision-latent}
+For correlated inputs on the $16\times16$ grid, use the same hotspot
+envelope $a_i$ and let
+\[
+ b_i=a_i\exp(Z_i+0.6\phi_iY),\qquad
+ \phi_i=\sin(\pi x_i)\sin(\pi y_i),
+\]
+where $Y,Z_1,\ldots,Z_N$ are independent standard normals.
+Corollary~\ref{cor:conditional-mixture} gives the energy prediction
+\begin{equation}\label{eq:revision-latent-energy}
+ \mathbb E\|\widehat u-u\|_{A,h}^2
+ =h^2\mathbb E_Y\!\left[\operatorname{tr}(G\Sigma(Y))
+                         +m(Y)^TGm(Y)\right].
+\end{equation}
+The diagonal comparison replaces $\Sigma(Y)$ by its diagonal while retaining
+the entire second term, including the correlations induced by the latent
+factor across distinct blocks. The reference source energy is analytical:
+for $M_i=a_i\exp((1+0.36\phi_i^2)/2)$,
+$\mathbb E[b_ib_j]=M_iM_j\exp(0.36\phi_i\phi_j)$ for $i\ne j$, and
+$\mathbb E[b_i^2]=a_i^2\exp(2(1+0.36\phi_i^2))$.
+
+All six prescribed block/layout codecs use $7N$ bits. Gauss--Hermite orders
+21, 41, 61 give a final relative change of $2.5\times10^{-13}$ in energy MSE and the
+conditional-mean contribution. A new stream of 30\,000 source vectors is paired
+across codecs, with 300 vector-bootstrap replicates. The measured
+nominal intervals contain all 6 population predictions. Actual CG solves
+on 100 vectors per codec have maximum relative energy difference
+$8.2\times10^{-11}$ from the direct source-error energies.
+
+\begin{table}[tb]
+\centering
+\caption{Correlated hotspot sources: relative energy RMS (percent).}
+\label{tab:revision-latent}
+\begingroup\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{rlrrl}
+\toprule
+$|B_j|$ & Layout & Full & Diagonal & MC $95\%$ interval\\
+\midrule
+8 & Cont. & 2.406 & 2.335 & [2.370,2.428] \\
+8 & Inter. & 2.484 & 2.428 & [2.458,2.509] \\
+32 & Cont. & 3.124 & 2.832 & [3.068,3.154] \\
+32 & Inter. & 3.072 & 2.867 & [3.048,3.119] \\
+128 & Cont. & 9.536 & 7.940 & [9.385,9.721] \\
+128 & Inter. & 8.171 & 6.989 & [8.002,8.218] \\
+\bottomrule
+\end{tabular}\endgroup
+\end{table}
+The diagonal model underestimates energy MSE by as much as a factor
+1.44. This comparison isolates the shared-exponent contribution after
+the latent source correlation is included; ``diagonal'' here removes only
+conditional block off-diagonals and is not a fully independent-source model.

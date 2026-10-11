@@ -1,0 +1,121 @@
+{
+  "seed": 2026101001,
+  "blocks_per_configuration": 300000,
+  "configurations": 4,
+  "method": "independently implemented Monte Carlo; five-standard-error check",
+  "exact_probability_checks_passed": true,
+  "results": [
+    {
+      "n": 2,
+      "L": 2,
+      "rounding": "rne",
+      "zero_probability": 0.25,
+      "observed_zero_probability": 0.24996,
+      "retained_probability": 0.999999999628456,
+      "statistics": {
+        "mean": {
+          "prediction": -0.0012398236131224334,
+          "estimate": -0.0012877965633584273,
+          "standard_error": 5.5158245295813293e-05,
+          "absolute_z": 0.8697330739713585
+        },
+        "second_moment": {
+          "prediction": 0.0018471385527625043,
+          "estimate": 0.0018335278613496677,
+          "standard_error": 8.257494784665952e-06,
+          "absolute_z": 1.6482833798589132
+        },
+        "covariance": {
+          "prediction": 3.5354537146997457e-06,
+          "estimate": -6.414010353298691e-06,
+          "standard_error": 6.4921859292185146e-06,
+          "absolute_z": 1.532529132171063
+        }
+      }
+    },
+    {
+      "n": 2,
+      "L": 2,
+      "rounding": "sr",
+      "zero_probability": 0.25,
+      "observed_zero_probability": 0.24996,
+      "retained_probability": 0.999999999628456,
+      "statistics": {
+        "mean": {
+          "prediction": 0.0,
+          "estimate": 1.100186104444545e-05,
+          "standard_error": 7.84733575690223e-05,
+          "absolute_z": 0.14019867870147668
+        },
+        "second_moment": {
+          "prediction": 0.0037093793779486304,
+          "estimate": 0.0036837645187808646,
+          "standard_error": 1.896904440506268e-05,
+          "absolute_z": 1.3503505300946725
+        },
+        "covariance": {
+          "prediction": 0.0,
+          "estimate": 1.1064116058710356e-05,
+          "standard_error": 1.3147955895118856e-05,
+          "absolute_z": 0.8415084555324589
+        }
+      }
+    },
+    {
+      "n": 4,
+      "L": 2,
+      "rounding": "rne",
+      "zero_probability": 0.0625,
+      "observed_zero_probability": 0.06263,
+      "retained_probability": 0.999999999814228,
+      "statistics": {
+        "mean": {
+          "prediction": -0.001445583328369072,
+          "estimate": -0.0014805591042879795,
+          "standard_error": 4.661739720444267e-05,
+          "absolute_z": 0.750273031450462
+        },
+        "second_moment": {
+          "prediction": 0.0025839509608787128,
+          "estimate": 0.0026069588656464906,
+          "standard_error": 8.35959232470857e-06,
+          "absolute_z": 2.7522759333338613
+        },
+        "covariance": {
+          "prediction": 3.6054699747302235e-06,
+          "estimate": 9.158978231837551e-07,
+          "standard_error": 7.816184381786844e-06,
+          "absolute_z": 0.3441029561449022
+        }
+      }
+    },
+    {
+      "n": 4,
+      "L": 2,
+      "rounding": "sr",
+      "zero_probability": 0.0625,
+      "observed_zero_probability": 0.06263,
+      "retained_probability": 0.999999999814228,
+      "statistics": {
+        "mean": {
+          "prediction": 0.0,
+          "estimate": 2.754861508373652e-05,
+          "standard_error": 6.58856125901204e-05,
+          "absolute_z": 0.418127934168551
+        },
+        "second_moment": {
+          "prediction": 0.005181942504576002,
+          "estimate": 0.005212947622688295,
+          "standard_error": 1.8404278032970577e-05,
+          "absolute_z": 1.684669078393003
+        },
+        "covariance": {
+          "prediction": 0.0,
+          "estimate": 9.894353359833407e-06,
+          "standard_error": 1.540313440294292e-05,
+          "absolute_z": 0.6423597367262467
+        }
+      }
+    }
+  ]
+}

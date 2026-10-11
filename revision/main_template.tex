@@ -1,0 +1,68 @@
+%% Revised SISC manuscript, 11 October 2026.
+%% Build with latexmk -pdf -interaction=nonstopmode -halt-on-error paper.tex.
+\documentclass[review,hidelinks,letterpaper]{siamart251216}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{amssymb,amsfonts,graphicx,booktabs,enumitem,microtype}
+\newsiamremark{remark}{Remark}
+\newsiamremark{example}{Example}
+\newcommand{\creflastconjunction}{, and~}
+\setlist{nosep,leftmargin=1.6em}
+\setlength{\emergencystretch}{2em}
+\AtBeginEnvironment{thebibliography}{\interlinepenalty=10000}
+\headers{Error Covariance in Block Floating Point}{Y. Xiong}
+\title{Exact Error Covariances and Accumulation in Block Floating Point}
+\author{Yongkang Xiong\thanks{College of Changkong, Nanjing University of
+Aeronautics and Astronautics, 29 Jiangjun Avenue, Nanjing 211106, China
+(\email{nuaapanda@outlook.com}).}}
+\hypersetup{pdftitle={Exact Error Covariances and Accumulation in Block Floating Point},
+ pdfauthor={Yongkang Xiong}}
+\begin{document}
+\maketitle
+\begin{abstract}
+Selecting a shared quantization scale from a block maximum couples the
+rounding errors, but conditioning on the scale does not in general restore independence.
+For independent, identically distributed inputs, we derive exact finite-block
+error moments using one-dimensional truncated distributions. The conditional
+pair covariance is always nonpositive and has a closed formula; variation of
+the conditional mean supplies a competing positive contribution. The resulting
+covariance matrix gives exact variance and mean-square error formulas for
+deterministic weighted reductions. Retaining the exact conditional moments
+while omitting the negative conditional covariance overestimates the variance
+inflation factor by at most one, independently of the input law and block
+length. Symmetric inputs and independently randomized stochastic rounding give
+zero pair covariance, whereas asymmetric inputs can produce either variance
+inflation or deflation. Bounded support with a nondegenerate limiting error
+gives unit inflation asymptotically. Unbounded support with finite second moment
+gives vanishing pair correlation, but does not guarantee vanishing inflation:
+for exponential inputs we prove divergence along a dyadic subsequence.
+A unified computational study checks the formulas against Monte Carlo
+experiments and exact rational enumeration, and measures the effects of weight
+balance and block partition on reduction errors. The analysis concerns a
+uniform integer-mantissa block grid and isolates input quantization from
+subsequent arithmetic rounding.
+\end{abstract}
+\begin{keywords}
+block floating point, quantization, rounding error, covariance,
+weighted reduction, stochastic rounding
+\end{keywords}
+\begin{AMS}
+65G50, 65F35, 60G70
+\end{AMS}
+\input{revision/introduction}
+\input{revision/theory_section}
+\input{revision/computation}
+\input{revision/results}
+\input{revision/discussion}
+\section*{Data and code availability}
+The accompanying reproduction package contains the experiment driver, saved
+machine-readable results, figure and table generator, high-precision evaluator,
+exact rational enumeration oracle, and a manifest with random seeds, package
+versions, execution times, and file hashes. The figures and tables in this
+manuscript are generated from that package. The earlier experiment records
+are retained separately and are not used as the numerical evidence for the
+revised results. The existing project repository is
+\url{https://github.com/NUAApanda-1116/bfp-error-independence}; the accompanying
+revision package specifies the files required to reproduce this version.
+\bibliographystyle{siamplain}
+\bibliography{references}
+\end{document}

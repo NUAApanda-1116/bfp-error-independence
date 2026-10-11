@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.aux
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.thm
+*.synctex.gz
+revision/qa/
+output/
+SISC_revision_package.zip
+*.tiff

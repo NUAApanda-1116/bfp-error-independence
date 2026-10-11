@@ -1,0 +1,90 @@
+\section{Numerical results}\label{sec:results}
+\subsection{Finite-block predictions and approximation errors}
+Figure~\ref{fig:revision-benchmark} and
+Table~\ref{tab:revision-validation} compare the population calculation
+with independent block samples. Across $64$ configurations, $61$ nominal
+$95\%$ intervals contain the predicted inflation, and the largest point
+discrepancy is $4.66\%$. The three misses are lognormal $(n,L)=(128,2)$,
+exponential $(8,2)$, and Beta$(2,5)$ $(32,2)$.
+
+\input{revision/table_validation}
+\input{revision/figure_validation}
+
+For asymmetric laws at $n=4096$, $L=2$, the predicted inflation is
+$6.205$ for ReLU, $14.927$ for half-normal, $177.1$ for lognormal,
+$41.794$ for exponential, and $2894.1$ for Pareto$(4)$.
+Changing the precision changes which binades place most inputs in the
+zero cell, producing distinct block-length trends.
+The conditional-mean upper prediction has maximum additive excess
+$0.00648$ in the continuous-law grid. The unconditioned-response
+approximation instead has maximum relative discrepancy $5.81\%$,
+at Pareto$(4)$, $n=32$, $L=2$: exact inflation is $6.806$, the
+conditional-mean upper value is $6.812$, and the unconditioned-response
+value is $7.201$. The dominant approximation error here is in the
+conditional marginal moments.
+
+Pareto inputs expose the importance of rare scale states. Ordinary
+sampling differs from the population prediction by as much as $14.8\%$;
+sampling every retained exponent stratum brings all eight predictions
+within their intervals. The omitted marginal second-moment bound is
+$3.0\times10^{-8}$ at $L=2$ and $1.9\times10^{-9}$ at $L=4$.
+Both sampling records are retained.
+
+\paragraph{Rounding controls.}
+All eight stochastic-rounding inflation intervals contain one.
+At $n=128$, $L=2$, the Gaussian marginal-variance ratio
+$12\widehat v/\widehat{\mathbb E[s^2]}$ is approximately $1.000$
+for round-to-nearest and $2.000$ for stochastic rounding.
+For ReLU, the atom at zero contributes zero error; the ratios are
+approximately $1/2$ and $1$, respectively.
+These controls check the symmetric residual, conditional unbiasedness,
+and treatment of atoms.
+
+\subsection{Weighted reductions and block partition}
+For $n=128$, $L=2$, we use positive weights, alternating $1,-1$,
+and alternating $1,-0.9$. Define
+\begin{equation}\label{eq:weight-imbalance}
+ \chi=\frac{(\mathbf1^Tw)^2}{n\|w\|_2^2}\in[0,1].
+\end{equation}
+Equation~\eqref{eq:revision-weighted} gives
+$\mathbb E[E_w^2]/\|w\|_2^2=(v-\kappa)+n(\kappa+\mu^2)\chi$.
+The three vectors have $\chi=1$, $0$, and approximately $0.00276$.
+Figure~\ref{fig:revision-weighted} and Table~\ref{tab:revision-weighted}
+compare shared-scale rounding, split blocks, and independently selected
+scales. The predictions have maximum MSE discrepancy $1.48\%$; eleven
+of twelve nominal intervals contain them.
+
+\input{revision/table_weighted}
+\input{revision/figure_weighted}
+
+Shared round-to-nearest gives normalized MSE $12.58$ for positive
+weights and $0.509$ for balanced weights. For positive weights,
+centered variance is about $695.1$ and MSE is $1610.0$, showing the
+additional squared-bias contribution. Stochastic rounding gives
+normalized MSE near $1.38$ for both patterns: eliminating bias and
+covariance improves the positive reduction, while its larger marginal
+variance worsens the balanced reduction.
+Splitting into length-$16$ blocks gives positive-weight MSE $0.816$;
+an independent scale per coordinate gives $0.023$. The following
+elliptic experiments account for the storage cost of those scale choices.
+
+\paragraph{Asymptotic verification.}
+Table~\ref{tab:revision-exponential} evaluates the subsequence in
+Theorem~\ref{thm:revision-exponential} at $L=2$, $j=3,\ldots,8$.
+Cell integration at $100$ and $160$ digits and the closed exponential
+formula agree in all displayed digits. Inflation grows from about $41$
+to $4.558\times10^{99}$, while the final $\mathcal I_n/n$ is
+$3.016\times10^{-12}$ and the ratio to the theorem normalization is
+$0.99999955$.
+Here $\mathcal I_n$ is a centered variance ratio; it is not the absolute
+mean-square error, whose additional coherent-bias term is given in
+\eqref{eq:revision-weighted}. The high-precision calculation resolves
+population-moment cancellation and does not claim that a binary64 reduction
+would form the displayed sum without overflow or loss of significance.
+\input{revision/table_exponential}
+
+\input{revision/elliptic2d_application}
+\input{revision/latent_application}
+\input{revision/latent_sensitivity}
+\input{revision/highcontrast_diffusion}
+\input{revision/calibration_application}
