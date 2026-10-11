@@ -156,8 +156,8 @@
     },
     {
       "path": "revision/latent_application.tex",
-      "bytes": 2391,
-      "sha256": "cc55e749d5502a5d04267c2f7916f62d47907f8c7eb3cac4d16f7c084595700a"
+      "bytes": 2340,
+      "sha256": "1c814ccdf89df1dbb88901366dc6cd1a1c40ae4e22853cd4084fd0a2b917d832"
     },
     {
       "path": "revision/latent_quadrature_audit.json",
@@ -596,8 +596,8 @@
     },
     {
       "path": "revision/experiments/highcontrast_diffusion_manifest.json",
-      "bytes": 72517,
-      "sha256": "abbcea47c958c2326463312090b5364aedecf4f50a5b3d9a927da2622aa3beca"
+      "bytes": 68146,
+      "sha256": "d536d2f64b2cc8881b65c09e933dd9b6c5c6ec56c09aa5b0c7b551c2fcfec9c1"
     },
     {
       "path": "revision/experiments/highcontrast_diffusion_numerical_source.py",
@@ -656,8 +656,8 @@
     },
     {
       "path": "revision/experiments/latent_correlation_sweep_manifest.json",
-      "bytes": 12182,
-      "sha256": "0e090951dad889a340301c0761662069cb65f1a0e8dce2f0b9e4d8a48718c0d4"
+      "bytes": 11547,
+      "sha256": "5c381a15bb4cd53531b10c6d74cdb6f2fd1603f652c19317ef8762b60cec490c"
     },
     {
       "path": "revision/experiments/latent_correlation_sweep_numerical_source.py",
@@ -736,8 +736,8 @@
     },
     {
       "path": "revision/experiments/latent_elliptic_manifest.json",
-      "bytes": 33337,
-      "sha256": "8d144dc63a65b547f4ba50c656d0e3a3ef7c482d202b143027469bde87c309ac"
+      "bytes": 31358,
+      "sha256": "b00252180bbb5b88f962410d041750be1cab7eca3e3699b22e91cdbbe308d5e6"
     },
     {
       "path": "revision/experiments/latent_elliptic_numerical_source.py",
@@ -846,8 +846,8 @@
     },
     {
       "path": "revision/experiments/manifest.json",
-      "bytes": 28524,
-      "sha256": "cc4cf18887ca3119a2c1f4d31e2cfd6fbfbb6f08a38e01d628fba3acaeaccb38"
+      "bytes": 28089,
+      "sha256": "d943dbd24bb02a3e1a0f2ec7045c3b931de6337d7765a15a0992042231fa2359"
     },
     {
       "path": "revision/experiments/plot_highcontrast_precision.py",
